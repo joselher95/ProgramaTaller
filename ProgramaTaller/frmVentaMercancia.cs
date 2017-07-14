@@ -172,27 +172,27 @@ namespace ProgramaTaller
             }
         }
 
-        private void txtClaveTrabajador_TextChanged(object sender, EventArgs e)
+        private void txtClaveCliente_TextChanged(object sender, EventArgs e)
         {
             int resultado;
-            int.TryParse(txtClaveEmpleado.Text, out resultado);
+            int.TryParse(txtClaveCliente.Text, out resultado);
 
             if (resultado == 0)
             {
-                epError.SetError(txtClaveEmpleado, "Clave de empleado invalida.");
+                epError.SetError(txtClaveCliente, "Clave de Cliente invalida.");
                 txtNombreEmpleado.Text = "";
                 return;
             }
 
-            Empleado empleado = new Empleado(resultado);
-            if (empleado.esNuevo)
+            Clientes cliente = new Clientes(resultado);
+            if (cliente.esNuevo)
             {
-                epError.SetError(txtClaveEmpleado, "El empleado no existe.");
+                epError.SetError(txtClaveCliente, "El Cliente no existe.");
                 txtNombreEmpleado.Text = "";
                 return;
             }
 
-            txtNombreEmpleado.Text = empleado.NombreCompleto;
+            txtNombreEmpleado.Text = cliente.NombreCompleto;
             epError.Clear();
         }
 
@@ -274,17 +274,7 @@ namespace ProgramaTaller
                 return;
             }
 
-            switch (cliente.TipoCliente)
-            {
-                case ('F'):
-                    txtDescripcionCliente.Text = cliente.NombreCompleto;
-                    epError.Clear();
-                    break;
-                case ('M'):
-                    txtDescripcionCliente.Text = cliente.RazonSocial;
-                    epError.Clear();
-                    break;
-            }
+            txtDescripcionCliente.Text = cliente.RazonSocial;
             txtDescripcionCliente.Visible = true;
         }
 
@@ -329,6 +319,30 @@ namespace ProgramaTaller
             {
                 MessageBox.Show("Debe seleccionar un producto a eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void txtClaveEmpleado_TextChanged(object sender, EventArgs e)
+        {
+            int resultado;
+            int.TryParse(txtClaveEmpleado.Text, out resultado);
+
+            if (resultado == 0)
+            {
+                epError.SetError(txtClaveEmpleado, "Clave de empleado invalida.");
+                txtNombreEmpleado.Text = "";
+                return;
+            }
+
+            Empleado empleado = new Empleado(resultado);
+            if (empleado.esNuevo)
+            {
+                epError.SetError(txtClaveEmpleado, "El empleado no existe.");
+                txtNombreEmpleado.Text = "";
+                return;
+            }
+
+            txtNombreEmpleado.Text = empleado.NombreCompleto;
+            epError.Clear();
         }
     }
 }

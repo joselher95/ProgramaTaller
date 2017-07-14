@@ -19,6 +19,7 @@ namespace ProgramaTaller.Clases
 
         private int m_ClaveCompra;
         private Proveedores m_Proveedor;
+        private Empleado m_Empleado;
         private bool cargarDatos = false;
 
         #endregion
@@ -57,11 +58,29 @@ namespace ProgramaTaller.Clases
                 object objValor = DBNull.Value;
                 if (value != null)
                     objValor = value.ClaveProveedor;
-                this.dtsCompras.Tables[0].Rows[0]["CLAVE_PROVEEDOR"] = objValor;
+                this.dtsCompras.Tables[0].Rows[0]["CLVE_PROVEEDOR"] = objValor;
             }
         }
 
-        public DateTime FechaVenta
+        public Empleado empleado
+        {
+            get
+            {
+                this.Cargar();
+                return m_Empleado;
+            }
+            set
+            {
+                this.Cargar();
+                this.m_Empleado = value;
+                object objValor = DBNull.Value;
+                if (value != null)
+                    objValor = value.ClaveEmpleado;
+                this.dtsCompras.Tables[0].Rows[0]["CLAVE_EMPLEADO_COMPRA"] = objValor;
+            }
+        }
+
+        public DateTime FechaCompra
         {
             get
             {
@@ -103,7 +122,7 @@ namespace ProgramaTaller.Clases
                 {
                     #region Obtener catalogo
                     con.Open();
-                    string strConsulta = "SELECT * FROM VENTAS WHERE CLAVE_COMPRA = @CLAVE_COMPRA";
+                    string strConsulta = "SELECT * FROM COMPRAS WHERE CLAVE_COMPRA = @CLAVE_COMPRA";
                     cmd = new SqlCommand(strConsulta, con);
                     cmd.Parameters.AddWithValue("@CLAVE_COMPRA", this.m_ClaveCompra);
                     dapCompras = new SqlDataAdapter();
@@ -135,7 +154,7 @@ namespace ProgramaTaller.Clases
                 catch (Exception ex)
                 {
                     con.Close();
-                    throw new Exception("Ocurrio un error al obtener las Ventas. " + ex.Message);
+                    throw new Exception("Ocurrio un error al obtener las Compras. " + ex.Message);
                 }
                 cargarDatos = false;
             }

@@ -16,6 +16,7 @@ namespace ProgramaTaller
         #region Variables privadas
         DataTable dtDatosGrid;
         #endregion
+
         #region Constructor
         public frmRecepcionMercancia()
         {
@@ -29,37 +30,6 @@ namespace ProgramaTaller
             dgvProductos.DefaultCellStyle.SelectionBackColor = Color.CadetBlue;
             dgvProductos.DefaultCellStyle.SelectionForeColor = Color.White;
         }
-        #endregion
-
-        #region Métodos privados
-        private DataTable crearTableDatosGrid()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("CLAVE");
-            dt.Columns.Add("DESCRIPCION");
-            dt.Columns.Add("PRECIO");
-            dt.Columns.Add("CANTIDAD");
-            dt.Columns.Add("IMPORTE");
-            return dt;
-        }
-
-        private void limpiar()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                    control.Text = "";
-            }
-            this.txtNombreProveedor.Visible = false;
-            this.txtDescripcionProducto.Visible = false;
-            this.dgvProductos.ClearSelection();
-            epError.Clear();
-            this.dgvProductos.CurrentCell = null;
-            dtDatosGrid.Rows.Clear();
-            this.dgvProductos.DataSource = dtDatosGrid;
-
-        }
-        #endregion
 
         private void txtClaveProducto_TextChanged(object sender, EventArgs e)
         {
@@ -71,6 +41,7 @@ namespace ProgramaTaller
                 epError.SetError(txtClaveProducto, "Clave de producto invalida.");
                 txtDescripcionProducto.Text = "";
                 txtCosto.Text = "";
+                txtPrecioVenta.Text = "";
                 txtDescripcionProducto.Visible = false;
                 return;
             }
@@ -81,12 +52,14 @@ namespace ProgramaTaller
                 epError.SetError(txtClaveProducto, "El producto no existe.");
                 txtDescripcionProducto.Text = "";
                 txtCosto.Text = "";
+                txtPrecioVenta.Text = "";
                 txtDescripcionProducto.Visible = false;
                 return;
             }
 
             txtDescripcionProducto.Text = producto.Descripcion;
             txtCosto.Text = producto.PrecioCompra.ToString();
+            txtPrecioVenta.Text = producto.PrecioVenta.ToString();
             epError.Clear();
             txtDescripcionProducto.Visible = true;
         }
@@ -99,11 +72,13 @@ namespace ProgramaTaller
                     throw new Exception("Debe teclear la clave del producto.");
                 if (new Producto(Convert.ToInt32(txtClaveProducto.Text)).esNuevo)
                     throw new Exception("No se puede agregar un producto que no existe.");
+                if(txtPrecioVenta.Text == "")
+                    throw new Exception("No puede dejar el precio de Venta vacío.");
+                if (txtCosto.Text == "")
+                    throw new Exception("No puede dejar el precio de Compra vacío.");
                 if (txtCantidad.Text == "")
                     throw new Exception("Debe teclear la cantidad de productos a agregar.");
                 Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
-                if (producto.Existencia < Convert.ToInt32(txtCantidad.Text))
-                    throw new Exception("La cantidad deseada excede la cantidad de productos en el invetario.");
 
                 if (this.dtDatosGrid == null)
                     dtDatosGrid = crearTableDatosGrid();
@@ -130,10 +105,13 @@ namespace ProgramaTaller
                     DataRow drwDatosGrid = dtDatosGrid.NewRow();
 
                     decimal importe = Convert.ToDecimal(this.txtCosto.Text) * Convert.ToInt32(this.txtCantidad.Text);
-                    decimal precio = Convert.ToDecimal(this.txtCosto.Text);
+                    decimal precioCompra = Convert.ToDecimal(this.txtCosto.Text);
+                    decimal precioVenta = Convert.ToDecimal(this.txtPrecioVenta.Text);
+
                     drwDatosGrid["CLAVE"] = this.txtClaveProducto.Text;
                     drwDatosGrid["DESCRIPCION"] = this.txtDescripcionProducto.Text;
-                    drwDatosGrid["PRECIO"] = precio;
+                    drwDatosGrid["PRECIO_COMPRA"] = precioCompra;
+                    drwDatosGrid["PRECIO_VENTA"] = precioVenta;
                     drwDatosGrid["CANTIDAD"] = this.txtCantidad.Text;
                     drwDatosGrid["IMPORTE"] = importe;
                     dtDatosGrid.Rows.Add(drwDatosGrid);
@@ -162,7 +140,154 @@ namespace ProgramaTaller
 
         private void txtCosto_Leave(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtClaveProducto.Text == "")
+                    throw new Exception("");
+                if (txtCosto.Text == "")
+                    throw new Exception("No se puede dejar el Costo vacío.");
+                Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
+                if (producto.PrecioCompra != Convert.ToDecimal(txtCosto))
+                {
+                    producto.PrecioCompra = Convert.ToDecimal(txtCosto);
+                    producto.Guardar();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message != "")
+                    MessageBox.Show(ex.Message, "Advertencia.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
 
+        private void txtPrecioVenta_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtClaveProducto.Text == "")
+                    throw new Exception("");
+                if (txtPrecioVenta.Text == "")
+                    throw new Exception("No se puede dejar el Costo vacío.");
+                Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
+                if (producto.PrecioVenta != Convert.ToDecimal(txtPrecioVenta.Text))
+                {
+                    producto.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
+                    producto.Guardar();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message != "")
+                    MessageBox.Show(ex.Message, "Advertencia.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnCancelarRecepción_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtClaveProveedor.Text == "")
+                    throw new Exception("Debe teclear la clave del cliente.");
+                if (new Proveedores(Convert.ToInt32(txtClaveProveedor.Text)).esNuevo)
+                    throw new Exception("El proveedor no existe.");
+
+
+                Collection collection = new Collection();
+                int claveCompra = collection.obtenerSiguienteCompra();
+                Compra compra = new Compra(claveCompra);
+                compra.empleado = new Empleado(Global.EmpleadoSesionActual);
+                compra.Proveedor = new Proveedores(Convert.ToInt32(txtClaveProveedor.Text));
+                compra.FechaCompra = DateTime.Now;
+                compra.Guardar();
+
+                foreach (DataRow row in dtDatosGrid.Rows)
+                {
+                    int claveDetalleCompra = collection.obtenerSiguienteDetalleCompra();
+                    DetalleCompra detalleCompra = new DetalleCompra(claveDetalleCompra);
+
+                    Producto producto = new Producto(Convert.ToInt32(row["CLAVE"]));
+                    int cantidad = Convert.ToInt32(row["CANTIDAD"]);
+                    decimal precio = Convert.ToDecimal(row["PRECIO_COMPRA"]);
+                    detalleCompra.Compra = compra;
+                    detalleCompra.Producto = producto;
+                    detalleCompra.CantidadProductos = cantidad;
+                    detalleCompra.PrecioUnitario = producto.PrecioCompra;
+                    detalleCompra.TotalCompra = cantidad * precio;
+                    detalleCompra.Guardar();
+
+                    producto.Existencia = producto.Existencia + cantidad;
+                    producto.Guardar();
+                }
+                limpiar();
+                MessageBox.Show("Recepción de mercancía guardada exitosamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al pagar. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+        #endregion
+
+        #region Métodos privados
+        private DataTable crearTableDatosGrid()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CLAVE");
+            dt.Columns.Add("DESCRIPCION");
+            dt.Columns.Add("PRECIO_COMPRA");
+            dt.Columns.Add("PRECIO_VENTA");
+            dt.Columns.Add("CANTIDAD");
+            dt.Columns.Add("IMPORTE");
+            return dt;
+        }
+
+        private void limpiar()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                    control.Text = "";
+            }
+            this.txtNombreProveedor.Visible = false;
+            this.txtDescripcionProducto.Visible = false;
+            this.dgvProductos.ClearSelection();
+            epError.Clear();
+            this.dgvProductos.CurrentCell = null;
+            dtDatosGrid.Rows.Clear();
+            this.dgvProductos.DataSource = dtDatosGrid;
+        }
+
+        #endregion
+
+        private void txtClaveProveedor_TextChanged(object sender, EventArgs e)
+        {
+            int resultado;
+            int.TryParse(txtClaveProveedor.Text, out resultado);
+
+            if (resultado == 0)
+            {
+                epError.SetError(txtClaveProveedor, "Clave de cliente invalida.");
+                txtNombreProveedor.Text = "";
+                txtNombreProveedor.Visible = false;
+                return;
+            }
+
+            Proveedores proveedor = new Proveedores(resultado);
+            if (proveedor.esNuevo)
+            {
+                epError.SetError(txtClaveProveedor, "El cliente no existe.");
+                txtNombreProveedor.Text = "";
+                txtNombreProveedor.Visible = false;
+                return;
+            }
+
+            txtNombreProveedor.Text = proveedor.RazonSocial;
+            txtNombreProveedor.Visible = true;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace ProgramaTaller.Clases
 
         #region Propiedades
 
-        public int ClaveDetalleVenta
+        public int ClaveDetalleCompra
         {
             get
             {
@@ -120,7 +120,7 @@ namespace ProgramaTaller.Clases
             }
         }
 
-        public decimal TotalVenta
+        public decimal TotalCompra
         {
             get
             {
@@ -136,7 +136,7 @@ namespace ProgramaTaller.Clases
                 object objValor = DBNull.Value;
                 if (value != 0)
                     objValor = value;
-                this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["TOTAL_VENTA"] = objValor;
+                this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["TOTAL_COMPRA"] = objValor;
             }
         }
 
@@ -163,7 +163,7 @@ namespace ProgramaTaller.Clases
                 {
                     #region Obtener catalogo
                     con.Open();
-                    string strConsulta = "SELECT * FROM DETALLE_COMPRAS WHERE CLAVE_DETALLE_VCOMPRA = @CLAVE_DETALLE_COMPRA";
+                    string strConsulta = "SELECT * FROM DETALLE_COMPRAS WHERE CLAVE_DETALLE_COMPRA = @CLAVE_DETALLE_COMPRA";
                     cmd = new SqlCommand(strConsulta, con);
                     cmd.Parameters.AddWithValue("@CLAVE_DETALLE_COMPRA", this.m_ClaveDetalleCompra);
                     dapDetalleDetalleCompras = new SqlDataAdapter();
@@ -200,7 +200,7 @@ namespace ProgramaTaller.Clases
                 catch (Exception ex)
                 {
                     con.Close();
-                    throw new Exception("Ocurrio un error al obtener el Detalle de Venta. " + ex.Message);
+                    throw new Exception("Ocurrio un error al obtener el Detalle de Compra. " + ex.Message);
                 }
                 cargarDatos = false;
             }

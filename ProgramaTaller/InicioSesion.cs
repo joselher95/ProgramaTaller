@@ -38,8 +38,10 @@ namespace ProgramaTaller
                 if (usuarios == null)
                     throw new Exception("El usuario no existe.");
                 if (this.txtPassword.Text != usuarios.Contraseña)
-                    throw new Exception("La contrasenia es incorrecta.");
+                    throw new Exception("La contraseña es incorrecta.");
 
+                Global.EmpleadoSesionActual = usuarios.ClaveUsuario;
+                
                 frmMenu menu = new ProgramaTaller.frmMenu();
                 menu.Show();
                 this.Hide();

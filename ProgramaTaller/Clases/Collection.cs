@@ -206,6 +206,56 @@ namespace ProgramaTaller.Clases
         }
         #endregion
 
+        #region Métodos Compras y Detalles de Compras
+        public int obtenerSiguienteCompra()
+        {
+            #region Consulta
+            con.Open();
+            string strConsulta = "SELECT MAX(CLAVE_COMPRA)+1 CLAVE_COMPRA FROM COMPRAS";
+            cmd = new SqlCommand(strConsulta, con);
+            dapCollection = new SqlDataAdapter(cmd);
+            DataTable dtResultado = new DataTable();
+            dapCollection.Fill(dtResultado);
+            con.Close();
+
+            #endregion
+
+            #region Validar que no regrese 0
+            int iResultado;
+            if (dtResultado.Rows[0]["CLAVE_COMPRA"] != DBNull.Value)
+                iResultado = Convert.ToInt32(dtResultado.Rows[0]["CLAVE_COMPRA"]);
+            else
+                iResultado = 1;
+            #endregion
+
+            return iResultado;
+        }
+
+        public int obtenerSiguienteDetalleCompra()
+        {
+            #region Consulta
+            con.Open();
+            string strConsulta = "SELECT MAX(CLAVE_DETALLE_COMPRA)+1 CLAVE_DETALLE_COMPRA FROM DETALLE_COMPRAS";
+            cmd = new SqlCommand(strConsulta, con);
+            dapCollection = new SqlDataAdapter(cmd);
+            DataTable dtResultado = new DataTable();
+            dapCollection.Fill(dtResultado);
+            con.Close();
+
+            #endregion
+
+            #region Validar que no regrese 0
+            int iResultado;
+            if (dtResultado.Rows[0]["CLAVE_DETALLE_COMPRA"] != DBNull.Value)
+                iResultado = Convert.ToInt32(dtResultado.Rows[0]["CLAVE_DETALLE_COMPRA"]);
+            else
+                iResultado = 1;
+            #endregion
+
+            return iResultado;
+        }
+        #endregion
+
         #region Metodos trabajadores
         public Empleado[] CatalogoTrabajadores()
         {

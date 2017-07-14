@@ -142,7 +142,7 @@
             this.txtClaveCliente.Name = "txtClaveCliente";
             this.txtClaveCliente.Size = new System.Drawing.Size(52, 20);
             this.txtClaveCliente.TabIndex = 9;
-            this.txtClaveCliente.TextChanged += new System.EventHandler(this.txtClaveTrabajador_TextChanged);
+            this.txtClaveCliente.TextChanged += new System.EventHandler(this.txtClaveCliente_TextChanged);
             this.txtClaveCliente.Leave += new System.EventHandler(this.txtClaveCliente_Leave);
             // 
             // txtDescripcionCliente
@@ -176,6 +176,7 @@
             this.txtClaveEmpleado.Name = "txtClaveEmpleado";
             this.txtClaveEmpleado.Size = new System.Drawing.Size(44, 20);
             this.txtClaveEmpleado.TabIndex = 13;
+            this.txtClaveEmpleado.TextChanged += new System.EventHandler(this.txtClaveEmpleado_TextChanged);
             // 
             // txtNombreEmpleado
             // 
