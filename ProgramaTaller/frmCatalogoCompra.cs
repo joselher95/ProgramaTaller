@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramaTaller.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,48 +18,6 @@ namespace ProgramaTaller
             InitializeComponent();
         }
 
-        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCatalogoVenta venta = new ProgramaTaller.frmCatalogoVenta();
-            venta.Show();
-            this.Hide();
-        }
-
-        private void recepciónDeMercancíaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmRecepcionMercancia recepcion = new ProgramaTaller.frmRecepcionMercancia();
-            recepcion.Show();
-            this.Hide();
-        }
-
-        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCatalogoCliente cliente = new frmCatalogoCliente();
-            cliente.Show();
-            this.Hide();
-        }
-
-        private void producosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCatalogoProductos productos = new frmCatalogoProductos();
-            productos.Show();
-            this.Hide();
-        }
-
-        private void trabajadoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCatalogoTrabajadores trabajadores = new frmCatalogoTrabajadores();
-            trabajadores.Show();
-            this.Hide();
-        }
-
-        private void ProveedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCatalogoProveedores proveedores = new frmCatalogoProveedores();
-            proveedores.Show();
-            this.Hide();
-        }
-
         private void btnEliminarCompra_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Si elimina esta compra no habrá manera de recuperar esa información que posee. "
@@ -68,5 +27,80 @@ namespace ProgramaTaller
                 
             }
         }
+
+        private void frmCatalogoCompra_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarCompra_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.txtClaveCompra.Text.Trim() == "")
+                    throw new Exception("Debe teclear la clave de la compra.");
+
+                int claveCompra = Convert.ToInt32(this.txtClaveCompra.Text);
+
+                Compra compra = new Compra(claveCompra);
+                if (compra.esNuevo)
+                    throw new Exception("La clave de compra no existe");
+                this.txtEmpleado.Text = compra.empleado.NombreCompleto;
+                switch (compra.Proveedor.TipoProveedor)
+                {
+                    case('F'):
+                        this.txtProveedor.Text = compra.Proveedor.ApellidoPaterno + " " + compra.Proveedor.ApellidoMaterno + " " + compra.Proveedor.Nombres;
+                        break;
+                    case('M'):
+                        this.txtProveedor.Text = compra.Proveedor.RazonSocial;
+                        break;
+                }
+                this.dtpFecha.Value = compra.FechaCompra;
+
+                Collection collection = new Collection();
+                DetalleCompra[] arrDetalleCompra = collection.BuscarDetalleCompra(claveCompra);
+                DataTable dtDatosGrid = crearTablaDatosGrid();
+                foreach (DetalleCompra detalleCompra in arrDetalleCompra)
+                {
+                    DataRow drwDatosGrid = dtDatosGrid.NewRow();
+                    drwDatosGrid["CLAVE_PRODUCTO"] = detalleCompra.Producto.ClaveProducto;
+                    drwDatosGrid["DESCRIPCION"] = detalleCompra.Producto.Descripcion;
+                    drwDatosGrid["PRECIO"] = detalleCompra.Producto.PrecioCompra;
+                    drwDatosGrid["CANTIDAD"] = detalleCompra.CantidadProductos;
+                    drwDatosGrid["IMPORTE"] = detalleCompra.TotalCompra;
+                    dtDatosGrid.Rows.Add(drwDatosGrid);
+                }
+                this.dataGridView1.DataSource = dtDatosGrid;
+                this.dataGridView1.ClearSelection();
+                #region Actualizar los totales
+                decimal subtotal = 0;
+                foreach (DataRow row in dtDatosGrid.Rows)
+                {
+                    subtotal += Convert.ToDecimal(row["IMPORTE"]);
+                }
+                decimal iva = subtotal * Convert.ToDecimal(0.16);
+                decimal total = subtotal + iva;
+                this.txtSubtotal.Text = subtotal.ToString("C");
+                this.txtIva.Text = iva.ToString("C");
+                this.txtTotal.Text = total.ToString("C");
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Advertencia.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private DataTable crearTablaDatosGrid()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("CLAVE_PRODUCTO");
+            dt.Columns.Add("DESCRIPCION");
+            dt.Columns.Add("PRECIO");
+            dt.Columns.Add("CANTIDAD");
+            dt.Columns.Add("IMPORTE");
+            return dt;
+        }
+
     }
 }

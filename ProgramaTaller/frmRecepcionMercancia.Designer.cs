@@ -41,6 +41,12 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.ClaveProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelarRecepción = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
@@ -54,12 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ClaveProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -186,6 +186,51 @@
             this.dgvProductos.Size = new System.Drawing.Size(854, 277);
             this.dgvProductos.TabIndex = 54;
             // 
+            // ClaveProducto
+            // 
+            this.ClaveProducto.DataPropertyName = "CLAVE";
+            this.ClaveProducto.HeaderText = "Clave";
+            this.ClaveProducto.MaxInputLength = 3;
+            this.ClaveProducto.Name = "ClaveProducto";
+            this.ClaveProducto.ReadOnly = true;
+            this.ClaveProducto.Width = 50;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "DESCRIPCION";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 400;
+            // 
+            // Costo
+            // 
+            this.Costo.DataPropertyName = "PRECIO_COMPRA";
+            this.Costo.HeaderText = "Precio Compra";
+            this.Costo.Name = "Costo";
+            this.Costo.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "PRECIO_VENTA";
+            this.Precio.HeaderText = "Precio Venta";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "CANTIDAD";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 60;
+            // 
+            // Importe
+            // 
+            this.Importe.DataPropertyName = "IMPORTE";
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            // 
             // btnCancelarRecepción
             // 
             this.btnCancelarRecepción.Location = new System.Drawing.Point(860, 527);
@@ -218,6 +263,7 @@
             this.btnBuscarProducto.TabIndex = 49;
             this.btnBuscarProducto.Text = "Buscar Producto";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Visible = false;
             // 
             // btnBuscarProveedor
             // 
@@ -228,6 +274,7 @@
             this.btnBuscarProveedor.TabIndex = 48;
             this.btnBuscarProveedor.Text = "Buscar Proovedor";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Visible = false;
             // 
             // txtDescripcionProducto
             // 
@@ -301,51 +348,6 @@
             // epError
             // 
             this.epError.ContainerControl = this;
-            // 
-            // ClaveProducto
-            // 
-            this.ClaveProducto.DataPropertyName = "CLAVE";
-            this.ClaveProducto.HeaderText = "Clave";
-            this.ClaveProducto.MaxInputLength = 3;
-            this.ClaveProducto.Name = "ClaveProducto";
-            this.ClaveProducto.ReadOnly = true;
-            this.ClaveProducto.Width = 50;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "DESCRIPCION";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 400;
-            // 
-            // Costo
-            // 
-            this.Costo.DataPropertyName = "PRECIO_COMPRA";
-            this.Costo.HeaderText = "Precio Compra";
-            this.Costo.Name = "Costo";
-            this.Costo.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "PRECIO_VENTA";
-            this.Precio.HeaderText = "Precio Venta";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "CANTIDAD";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 60;
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "IMPORTE";
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
             // 
             // txtPrecioVenta
             // 

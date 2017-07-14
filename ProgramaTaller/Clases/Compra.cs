@@ -143,10 +143,15 @@ namespace ProgramaTaller.Clases
                     }
                     else
                     {
-                        if (this.dtsCompras.Tables[0].Rows[0]["CLAVE_PROVEEDOR"] == DBNull.Value)
+                        if (this.dtsCompras.Tables[0].Rows[0]["CLVE_PROVEEDOR"] == DBNull.Value)
                             this.m_Proveedor = null;
                         else
-                            this.m_Proveedor = new Proveedores(Convert.ToInt32(this.dtsCompras.Tables[0].Rows[0]["CLAVE_PROVEEDOR"]));
+                            this.m_Proveedor = new Proveedores(Convert.ToInt32(this.dtsCompras.Tables[0].Rows[0]["CLVE_PROVEEDOR"]));
+
+                        if (this.dtsCompras.Tables[0].Rows[0]["CLAVE_EMPLEADO_COMPRA"] == DBNull.Value)
+                            this.m_Empleado = null;
+                        else
+                            this.m_Empleado = new Empleado(Convert.ToInt32(this.dtsCompras.Tables[0].Rows[0]["CLAVE_EMPLEADO_COMPRA"]));
                     }
 
                     #endregion

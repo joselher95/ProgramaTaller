@@ -204,6 +204,34 @@ namespace ProgramaTaller.Clases
 
             return iResultado;
         }
+
+        public DetalleVenta[] BuscarDetalleVenta(int claveVenta)
+        {
+            #region Obtener catalogo
+            con.Open();
+            string strConsulta = "SELECT * FROM DETALLE_VENTAS WHERE CLAVE_VENTA = @CLAVE_VENTA";
+            cmd = new SqlCommand(strConsulta, con);
+            cmd.Parameters.AddWithValue("@CLAVE_VENTA", claveVenta);
+            dapCollection = new SqlDataAdapter();
+            dtCollection = new DataTable();
+            dapCollection.SelectCommand = cmd;
+            dapCollection.Fill(dtCollection);
+            con.Close();
+            #endregion
+
+            #region crear arreglo
+            ArrayList arlDetalleCompra = new ArrayList();
+            foreach (DataRow row in dtCollection.Rows)
+            {
+                DetalleVenta detalleCompra = new DetalleVenta(Convert.ToInt32(row["CLAVE_DETALLE_VENTA"]));
+                arlDetalleCompra.Add(detalleCompra);
+            }
+            DetalleVenta[] arrDetalleVenta = new DetalleVenta[arlDetalleCompra.Count];
+            arlDetalleCompra.CopyTo(arrDetalleVenta);
+            #endregion
+
+            return arrDetalleVenta;
+        }
         #endregion
 
         #region Métodos Compras y Detalles de Compras
@@ -254,6 +282,35 @@ namespace ProgramaTaller.Clases
 
             return iResultado;
         }
+
+        public DetalleCompra[] BuscarDetalleCompra(int claveCompra)
+        {
+            #region Obtener catalogo
+            con.Open();
+            string strConsulta = "SELECT * FROM DETALLE_COMPRAS WHERE CLAVE_COMPRA = @CLAVE_COMPRA";
+            cmd = new SqlCommand(strConsulta, con);
+            cmd.Parameters.AddWithValue("@CLAVE_COMPRA", claveCompra);
+            dapCollection = new SqlDataAdapter();
+            dtCollection = new DataTable();
+            dapCollection.SelectCommand = cmd;
+            dapCollection.Fill(dtCollection);
+            con.Close();
+            #endregion
+
+            #region crear arreglo
+            ArrayList arlDetalleCompra = new ArrayList();
+            foreach (DataRow row in dtCollection.Rows)
+            {
+                DetalleCompra detalleCompra = new DetalleCompra(Convert.ToInt32(row["CLAVE_DETALLE_COMPRA"]));
+                arlDetalleCompra.Add(detalleCompra);
+            }
+            DetalleCompra[] arrDetalleCompra = new DetalleCompra[arlDetalleCompra.Count];
+            arlDetalleCompra.CopyTo(arrDetalleCompra);
+            #endregion
+
+            return arrDetalleCompra;
+        }
+
         #endregion
 
         #region Metodos trabajadores

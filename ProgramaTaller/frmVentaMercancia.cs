@@ -215,7 +215,7 @@ namespace ProgramaTaller
 
                 Collection collection = new Collection();
                 int claveVenta = collection.obtenerSiguienteVenta();
-                Venta venta = new Venta(claveVenta);
+                Venta venta = new Venta(claveVenta, new Empleado(Global.EmpleadoSesionActual));
                 venta.Cliente = new Clientes(Convert.ToInt32(txtClaveCliente.Text));
                 venta.EmpleadoVenta = new Empleado(Global.EmpleadoSesionActual);
                 if (chkManoObra.Checked)

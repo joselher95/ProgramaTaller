@@ -23,9 +23,13 @@ namespace ProgramaTaller
         #region Eventos de los controles
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Default();
             txtRFC.Enabled = true;
             rbPersonaFisica.Enabled = true;
             rbPersonaMoral.Enabled = true;
+            txtApellidoMaterno.Enabled = true;
+            txtApellidoPaterno.Enabled = true;
+            txtNombres.Enabled = true;
             txtCalle.Enabled = true;
             txtColonia.Enabled = true;
             txtNumero.Enabled = true;
@@ -39,10 +43,6 @@ namespace ProgramaTaller
 
         private void rbPersonaFisica_CheckedChanged(object sender, EventArgs e)
         {
-            txtApellidoMaterno.Text = null;
-            txtApellidoPaterno.Text = null;
-            txtNombres.Text = null;
-            txtRazonSocial.Text = null;
             if (rbPersonaFisica.Checked)
             {
                 txtRazonSocial.Enabled = false;
@@ -99,7 +99,18 @@ namespace ProgramaTaller
                 if (control is TextBox)
                     control.Text = null;
             }
-            this.btnGuardar.Enabled = true;
+            txtRFC.Enabled = false;
+            rbPersonaFisica.Enabled = false;
+            rbPersonaMoral.Enabled = false;
+            txtApellidoMaterno.Enabled = false;
+            txtApellidoPaterno.Enabled = false;
+            txtNombres.Enabled = false;
+            txtCalle.Enabled = false;
+            txtColonia.Enabled = false;
+            txtNumero.Enabled = false;
+            txtCorreo.Enabled = false;
+            txtTelefono.Enabled = false;
+            this.btnGuardar.Enabled = false;
             this.gvClientes.ClearSelection();
             this.gvClientes.CurrentCell = null;
             //gvClientes.ForeColor = Color.Gray;
@@ -173,6 +184,10 @@ namespace ProgramaTaller
                 this.txtApellidoMaterno.Text = cliente.ApellidoMaterno;
                 this.txtNombres.Text = cliente.Nombres;
                 this.txtRazonSocial.Text = cliente.RazonSocial;
+                this.txtRFC.Enabled = true;
+                this.txtApellidoPaterno.Enabled = true;
+                this.txtApellidoMaterno.Enabled = true;
+                this.txtNombres.Enabled = true;
                 switch (cliente.TipoCliente)
                 {
                     case ('F'):

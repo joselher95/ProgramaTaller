@@ -195,6 +195,7 @@
             this.btnBuscarCliente.TabIndex = 15;
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Visible = false;
             // 
             // btnBuscarProducto
             // 
@@ -205,6 +206,7 @@
             this.btnBuscarProducto.TabIndex = 17;
             this.btnBuscarProducto.Text = "Buscar Producto";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Visible = false;
             // 
             // chkManoObra
             // 
@@ -333,6 +335,7 @@
             this.btnBuscarTrabajador.TabIndex = 25;
             this.btnBuscarTrabajador.Text = "Buscar Trabajador";
             this.btnBuscarTrabajador.UseVisualStyleBackColor = true;
+            this.btnBuscarTrabajador.Visible = false;
             // 
             // txtIva
             // 
