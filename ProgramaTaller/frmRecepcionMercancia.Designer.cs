@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtCosto = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.ClaveProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +58,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -82,6 +85,7 @@
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(100, 20);
             this.txtCosto.TabIndex = 64;
+            this.txtCosto.Leave += new System.EventHandler(this.txtCosto_Leave);
             // 
             // label11
             // 
@@ -100,6 +104,7 @@
             this.btnAgregar.TabIndex = 62;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtSubtotal
             // 
@@ -161,21 +166,21 @@
             this.label3.TabIndex = 55;
             this.label3.Text = "Total:";
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ClaveProducto,
             this.Descripcion,
             this.Precio,
             this.Cantidad,
             this.Importe});
-            this.dataGridView1.Location = new System.Drawing.Point(101, 176);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 277);
-            this.dataGridView1.TabIndex = 54;
+            this.dgvProductos.Location = new System.Drawing.Point(101, 176);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowTemplate.Height = 24;
+            this.dgvProductos.Size = new System.Drawing.Size(818, 277);
+            this.dgvProductos.TabIndex = 54;
             // 
             // ClaveProducto
             // 
@@ -213,7 +218,7 @@
             // btnCancelarRecepción
             // 
             this.btnCancelarRecepción.Location = new System.Drawing.Point(860, 527);
-            this.btnCancelarRecepción.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelarRecepción.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelarRecepción.Name = "btnCancelarRecepción";
             this.btnCancelarRecepción.Size = new System.Drawing.Size(129, 26);
             this.btnCancelarRecepción.TabIndex = 53;
@@ -224,7 +229,7 @@
             // 
             this.btnPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagar.Location = new System.Drawing.Point(860, 470);
-            this.btnPagar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPagar.Margin = new System.Windows.Forms.Padding(2);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(129, 52);
             this.btnPagar.TabIndex = 52;
@@ -234,7 +239,7 @@
             // btnBuscarProducto
             // 
             this.btnBuscarProducto.Location = new System.Drawing.Point(333, 81);
-            this.btnBuscarProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(106, 21);
             this.btnBuscarProducto.TabIndex = 49;
@@ -244,7 +249,7 @@
             // btnBuscarProveedor
             // 
             this.btnBuscarProveedor.Location = new System.Drawing.Point(291, 38);
-            this.btnBuscarProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(111, 26);
             this.btnBuscarProveedor.TabIndex = 48;
@@ -265,6 +270,7 @@
             this.txtClaveProducto.Name = "txtClaveProducto";
             this.txtClaveProducto.Size = new System.Drawing.Size(100, 20);
             this.txtClaveProducto.TabIndex = 44;
+            this.txtClaveProducto.TextChanged += new System.EventHandler(this.txtClaveProducto_TextChanged);
             // 
             // txtNombreProveedor
             // 
@@ -318,6 +324,10 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Clave Proveedor:";
             // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
             // frmRecepcionMercancia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,7 +344,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnCancelarRecepción);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.btnBuscarProducto);
@@ -350,7 +360,8 @@
             this.Name = "frmRecepcionMercancia";
             this.Text = "Recepción de Mercancía a Proveedores";
             this.Load += new System.EventHandler(this.RecepcionMercancia_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +380,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClaveProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
@@ -387,5 +398,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider epError;
     }
 }

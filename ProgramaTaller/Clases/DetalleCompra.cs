@@ -163,9 +163,9 @@ namespace ProgramaTaller.Clases
                 {
                     #region Obtener catalogo
                     con.Open();
-                    string strConsulta = "SELECT * FROM DETALLE_VENTAS WHERE CLAVE_DETALLE_VENTA = @CLAVE_DETALLE_VENTA";
+                    string strConsulta = "SELECT * FROM DETALLE_COMPRAS WHERE CLAVE_DETALLE_VCOMPRA = @CLAVE_DETALLE_COMPRA";
                     cmd = new SqlCommand(strConsulta, con);
-                    cmd.Parameters.AddWithValue("@CLAVE_DETALLE_VENTA", this.m_ClaveDetalleCompra);
+                    cmd.Parameters.AddWithValue("@CLAVE_DETALLE_COMPRA", this.m_ClaveDetalleCompra);
                     dapDetalleDetalleCompras = new SqlDataAdapter();
                     dtsDetalleDetalleCompras = new DataSet();
                     dapDetalleDetalleCompras.SelectCommand = cmd;
@@ -179,15 +179,15 @@ namespace ProgramaTaller.Clases
                     if (this.dtsDetalleDetalleCompras.Tables[0].Rows.Count == 0)
                     {
                         DataRow drwUsuarios = dtsDetalleDetalleCompras.Tables[0].NewRow();
-                        drwUsuarios["CLAVE_DETALLE_VENTA"] = this.m_ClaveDetalleCompra;
+                        drwUsuarios["CLAVE_DETALLE_COMPRA"] = this.m_ClaveDetalleCompra;
                         dtsDetalleDetalleCompras.Tables[0].Rows.Add(drwUsuarios);
                     }
                     else
                     {
-                        if (this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["CLAVE_VENTA"] == DBNull.Value)
+                        if (this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["CLAVE_COMPRA"] == DBNull.Value)
                             this.m_Compra = null;
                         else
-                            this.m_Compra = new Compra(Convert.ToInt32(this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["CLAVE_VENTA"]));
+                            this.m_Compra = new Compra(Convert.ToInt32(this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["CLAVE_COMPRA"]));
 
                         if (this.dtsDetalleDetalleCompras.Tables[0].Rows[0]["CLAVE_PRODUCTO"] == DBNull.Value)
                             this.m_Producto = null;

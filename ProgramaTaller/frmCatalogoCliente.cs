@@ -45,17 +45,11 @@ namespace ProgramaTaller
             txtRazonSocial.Text = null;
             if (rbPersonaFisica.Checked)
             {
-                txtApellidoMaterno.Enabled = true;
-                txtApellidoPaterno.Enabled = true;
-                txtNombres.Enabled = true;
                 txtRazonSocial.Enabled = false;
             }
             else
             {
                 txtRazonSocial.Enabled = true;
-                txtNombres.Enabled = false;
-                txtApellidoPaterno.Enabled = false;
-                txtApellidoMaterno.Enabled = false;
             }
         }
 
@@ -73,7 +67,8 @@ namespace ProgramaTaller
             DataTable dt = new DataTable();
             dt.Columns.Add("Clave");
             dt.Columns.Add("RFC");
-            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Razon_Social");
+            dt.Columns.Add("Domicilio");
             dt.Columns.Add("Telefono");
             return dt;
         }
@@ -88,8 +83,9 @@ namespace ProgramaTaller
                 DataRow drwDatosGrid = dtDatosGrid.NewRow();
                 drwDatosGrid["Clave"] = cliente.ClaveCliente;
                 drwDatosGrid["RFC"] = cliente.Rfc;
-                drwDatosGrid["Nombre"] = cliente.NombreCompleto;
+                drwDatosGrid["Razon_Social"] = cliente.NombreCompleto;
                 drwDatosGrid["Telefono"] = cliente.Telefono;
+                drwDatosGrid["Domicilio"] = cliente.Domicilio;
                 dtDatosGrid.Rows.Add(drwDatosGrid);
             }
 
@@ -152,7 +148,7 @@ namespace ProgramaTaller
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            (gvClientes.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '{0}%'", txtFiltro.Text);
+            (gvClientes.DataSource as DataTable).DefaultView.RowFilter = string.Format("Razon_Social LIKE '{0}%'", txtFiltro.Text);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -173,16 +169,17 @@ namespace ProgramaTaller
                 Clientes cliente = new Clientes(Convert.ToInt32(datosGrid.Rows[index]["Clave"]));
                 this.txtClave.Text = cliente.ClaveCliente.ToString();
                 this.txtRFC.Text = cliente.Rfc;
+                this.txtApellidoPaterno.Text = cliente.ApellidoPaterno;
+                this.txtApellidoMaterno.Text = cliente.ApellidoMaterno;
+                this.txtNombres.Text = cliente.Nombres;
+                this.txtRazonSocial.Text = cliente.RazonSocial;
                 switch (cliente.TipoCliente)
                 {
                     case ('F'):
                         this.rbPersonaFisica.Checked = true;
-                        this.txtApellidoPaterno.Text = cliente.ApellidoPaterno;
-                        this.txtApellidoMaterno.Text = cliente.ApellidoMaterno;
-                        this.txtNombres.Text = cliente.Nombres;
                         break;
                     case ('M'):
-                        this.txtRazonSocial.Text = cliente.RazonSocial;
+                        this.rbPersonaMoral.Checked = true;
                         break;
                 }
                 this.txtCalle.Text = cliente.CalleDomicilio;

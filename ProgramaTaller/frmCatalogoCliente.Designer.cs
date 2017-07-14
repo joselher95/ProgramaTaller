@@ -40,13 +40,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gvClientes = new System.Windows.Forms.DataGridView();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Razon_Social = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +58,12 @@
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.gvClientes = new System.Windows.Forms.DataGridView();
+            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Razon_Social = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,68 +173,6 @@
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Clave:";
-            // 
-            // gvClientes
-            // 
-            this.gvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Clave,
-            this.Razon_Social,
-            this.RFC,
-            this.Domicilio,
-            this.Telefono,
-            this.Correo});
-            this.gvClientes.Location = new System.Drawing.Point(12, 63);
-            this.gvClientes.Name = "gvClientes";
-            this.gvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvClientes.Size = new System.Drawing.Size(1040, 150);
-            this.gvClientes.TabIndex = 21;
-            // 
-            // Clave
-            // 
-            this.Clave.DataPropertyName = "Clave";
-            this.Clave.FillWeight = 60F;
-            this.Clave.HeaderText = "Clave";
-            this.Clave.Name = "Clave";
-            this.Clave.ReadOnly = true;
-            this.Clave.Width = 60;
-            // 
-            // Razon_Social
-            // 
-            this.Razon_Social.DataPropertyName = "RAZON_SOCIAL";
-            this.Razon_Social.HeaderText = "Razón Social";
-            this.Razon_Social.Name = "Razon_Social";
-            this.Razon_Social.ReadOnly = true;
-            this.Razon_Social.Width = 400;
-            // 
-            // RFC
-            // 
-            this.RFC.DataPropertyName = "Rfc";
-            this.RFC.HeaderText = "RFC";
-            this.RFC.Name = "RFC";
-            this.RFC.ReadOnly = true;
-            // 
-            // Domicilio
-            // 
-            this.Domicilio.HeaderText = "Domicilio";
-            this.Domicilio.Name = "Domicilio";
-            this.Domicilio.ReadOnly = true;
-            this.Domicilio.Width = 400;
-            // 
-            // Telefono
-            // 
-            this.Telefono.DataPropertyName = "Telefono";
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 80;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 200;
             // 
             // txtFiltro
             // 
@@ -393,7 +330,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(871, 497);
+            this.btnGuardar.Location = new System.Drawing.Point(871, 507);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 42);
             this.btnGuardar.TabIndex = 50;
@@ -401,11 +338,65 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // gvClientes
+            // 
+            this.gvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Clave,
+            this.Razon_Social,
+            this.Rfc,
+            this.Domicilio,
+            this.Telefono});
+            this.gvClientes.Location = new System.Drawing.Point(12, 79);
+            this.gvClientes.Name = "gvClientes";
+            this.gvClientes.Size = new System.Drawing.Size(1040, 150);
+            this.gvClientes.TabIndex = 51;
+            // 
+            // Clave
+            // 
+            this.Clave.DataPropertyName = "Clave";
+            this.Clave.HeaderText = "Clave";
+            this.Clave.Name = "Clave";
+            this.Clave.ReadOnly = true;
+            this.Clave.Width = 70;
+            // 
+            // Razon_Social
+            // 
+            this.Razon_Social.DataPropertyName = "Razon_Social";
+            this.Razon_Social.HeaderText = "Razón Social";
+            this.Razon_Social.Name = "Razon_Social";
+            this.Razon_Social.ReadOnly = true;
+            this.Razon_Social.Width = 350;
+            // 
+            // Rfc
+            // 
+            this.Rfc.DataPropertyName = "Rfc";
+            this.Rfc.HeaderText = "RFC";
+            this.Rfc.Name = "Rfc";
+            this.Rfc.ReadOnly = true;
+            this.Rfc.Width = 130;
+            // 
+            // Domicilio
+            // 
+            this.Domicilio.DataPropertyName = "Domicilio";
+            this.Domicilio.HeaderText = "Domicilio";
+            this.Domicilio.Name = "Domicilio";
+            this.Domicilio.ReadOnly = true;
+            this.Domicilio.Width = 340;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
             // frmCatalogoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 561);
+            this.Controls.Add(this.gvClientes);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.label12);
@@ -434,7 +425,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.gvClientes);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
             this.Name = "frmCatalogoCliente";
@@ -460,7 +450,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView gvClientes;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
@@ -479,11 +468,11 @@
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DataGridView gvClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Clave;
         private System.Windows.Forms.DataGridViewTextBoxColumn Razon_Social;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RFC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rfc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
     }
 }

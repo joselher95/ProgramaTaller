@@ -201,7 +201,7 @@ namespace ProgramaTaller
             }
             catch(Exception ex)
             {
-                MessageBox.Show("asdasdasda", " a", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK);
             }
         }
 

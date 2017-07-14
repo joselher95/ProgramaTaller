@@ -73,27 +73,6 @@ namespace ProgramaTaller
             }
         }
 
-        private void tsmbSalir_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Desea salir?", "Salir", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                InicioSesion iniciarSesion = new InicioSesion();
-                this.Close();
-                iniciarSesion.Close();
-            }
-        }
-
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtClaveCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtClaveProducto_TextChanged(object sender, EventArgs e)
         {
             int resultado;
@@ -134,8 +113,10 @@ namespace ProgramaTaller
                     throw new Exception("No se puede agregar un producto que no existe.");
                 if (txtCantidad.Text == "")
                     throw new Exception("Debe teclear la cantidad de productos a agregar.");
-
-
+                Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
+                if(producto.Existencia < Convert.ToInt32(txtCantidad.Text))
+                    throw new Exception("La cantidad deseada excede la cantidad de productos en el invetario.");
+                
                 if (this.dtDatosGrid == null)
                     dtDatosGrid = crearTableDatosGrid();
 

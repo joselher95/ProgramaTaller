@@ -131,6 +131,15 @@ namespace ProgramaTaller.Clases
             }
         }
 
+        public string Domicilio
+        {
+            get
+            {
+                string dom = this.CalleDomicilio + " #" + this.NumeroDomicilio + " Col." + this.ColoniaDomicilio;
+                return dom;
+            }
+        }
+
         public string CalleDomicilio
         {
             get
