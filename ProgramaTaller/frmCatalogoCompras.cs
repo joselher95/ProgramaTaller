@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ProgramaTaller
 {
-    public partial class frmCatalogoCompra : Form
+    public partial class frmCatalogoCompras : Form
     {
-        public frmCatalogoCompra()
+        public frmCatalogoCompras()
         {
             InitializeComponent();
         }
@@ -102,5 +102,9 @@ namespace ProgramaTaller
             return dt;
         }
 
+        private void frmCatalogoCompras_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoCompras = null;
+        }
     }
 }

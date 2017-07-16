@@ -64,10 +64,10 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(746, 295);
+            this.btnCancelar.Location = new System.Drawing.Point(952, 295);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(94, 42);
-            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -77,17 +77,17 @@
             this.btnEditar.Location = new System.Drawing.Point(848, 295);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(98, 42);
-            this.btnEditar.TabIndex = 3;
+            this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(952, 295);
+            this.btnNuevo.Location = new System.Drawing.Point(742, 295);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 42);
-            this.btnNuevo.TabIndex = 2;
+            this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -98,7 +98,7 @@
             this.txtPrecioV.Location = new System.Drawing.Point(379, 442);
             this.txtPrecioV.Name = "txtPrecioV";
             this.txtPrecioV.Size = new System.Drawing.Size(119, 20);
-            this.txtPrecioV.TabIndex = 9;
+            this.txtPrecioV.TabIndex = 13;
             // 
             // txtDescripcion
             // 
@@ -106,7 +106,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(583, 361);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(469, 20);
-            this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.TabIndex = 8;
             // 
             // txtNombre
             // 
@@ -114,7 +114,7 @@
             this.txtNombre.Location = new System.Drawing.Point(239, 361);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(241, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 7;
             // 
             // txtProveedor
             // 
@@ -122,7 +122,7 @@
             this.txtProveedor.Location = new System.Drawing.Point(111, 401);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(124, 20);
-            this.txtProveedor.TabIndex = 7;
+            this.txtProveedor.TabIndex = 9;
             this.txtProveedor.Leave += new System.EventHandler(this.txtProveedor_Leave);
             // 
             // txtClave
@@ -131,7 +131,7 @@
             this.txtClave.Location = new System.Drawing.Point(59, 361);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(100, 20);
-            this.txtClave.TabIndex = 27;
+            this.txtClave.TabIndex = 6;
             // 
             // label7
             // 
@@ -192,7 +192,7 @@
             this.gvProductos.Location = new System.Drawing.Point(12, 114);
             this.gvProductos.Name = "gvProductos";
             this.gvProductos.Size = new System.Drawing.Size(1040, 150);
-            this.gvProductos.TabIndex = 21;
+            this.gvProductos.TabIndex = 2;
             // 
             // Clave
             // 
@@ -280,14 +280,14 @@
             this.txtPrecioC.Location = new System.Drawing.Point(111, 442);
             this.txtPrecioC.Name = "txtPrecioC";
             this.txtPrecioC.Size = new System.Drawing.Size(119, 20);
-            this.txtPrecioC.TabIndex = 8;
+            this.txtPrecioC.TabIndex = 12;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(282, 397);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 26);
-            this.button1.TabIndex = 37;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Buscar Proveedor";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -306,14 +306,14 @@
             this.txtNombreProveedor.Location = new System.Drawing.Point(583, 401);
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(469, 20);
-            this.txtNombreProveedor.TabIndex = 39;
+            this.txtNombreProveedor.TabIndex = 11;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(831, 460);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(143, 63);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuerdar_Click);
@@ -333,7 +333,7 @@
             this.txtExistencia.Location = new System.Drawing.Point(601, 442);
             this.txtExistencia.Name = "txtExistencia";
             this.txtExistencia.Size = new System.Drawing.Size(119, 20);
-            this.txtExistencia.TabIndex = 10;
+            this.txtExistencia.TabIndex = 14;
             // 
             // frmCatalogoProductos
             // 
@@ -365,7 +365,9 @@
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
             this.Name = "frmCatalogoProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoProductos_FormClosed);
             this.Load += new System.EventHandler(this.frmCatalogoProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvProductos)).EndInit();
             this.ResumeLayout(false);

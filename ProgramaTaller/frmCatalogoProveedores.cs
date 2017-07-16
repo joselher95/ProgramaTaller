@@ -246,5 +246,10 @@ namespace ProgramaTaller
                 this.btnGuardar.Enabled = true;
             }
         }
+
+        private void frmCatalogoProveedores_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoProveedores = null;
+        }
     }
 }

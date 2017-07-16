@@ -1,6 +1,6 @@
 ﻿namespace ProgramaTaller
 {
-    partial class frmCatalogoCompra
+    partial class frmCatalogoCompras
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,7 @@
             this.Cantidad,
             this.Importe});
             this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(143, 199);
+            this.dataGridView1.Location = new System.Drawing.Point(143, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(785, 184);
@@ -111,7 +111,7 @@
             // 
             this.txtClaveCompra.Location = new System.Drawing.Point(259, 50);
             this.txtClaveCompra.Name = "txtClaveCompra";
-            this.txtClaveCompra.Size = new System.Drawing.Size(99, 20);
+            this.txtClaveCompra.Size = new System.Drawing.Size(100, 20);
             this.txtClaveCompra.TabIndex = 6;
             // 
             // label1
@@ -125,7 +125,7 @@
             // 
             // btnBuscarCompra
             // 
-            this.btnBuscarCompra.Location = new System.Drawing.Point(382, 50);
+            this.btnBuscarCompra.Location = new System.Drawing.Point(364, 50);
             this.btnBuscarCompra.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarCompra.Name = "btnBuscarCompra";
             this.btnBuscarCompra.Size = new System.Drawing.Size(110, 26);
@@ -138,7 +138,7 @@
             // 
             this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(219, 470);
+            this.txtSubtotal.Location = new System.Drawing.Point(239, 469);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(120, 26);
             this.txtSubtotal.TabIndex = 35;
@@ -147,7 +147,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(146, 473);
+            this.label10.Location = new System.Drawing.Point(161, 467);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 20);
@@ -158,16 +158,16 @@
             // 
             this.txtIva.Enabled = false;
             this.txtIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIva.Location = new System.Drawing.Point(408, 470);
+            this.txtIva.Location = new System.Drawing.Point(423, 469);
             this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(87, 26);
+            this.txtIva.Size = new System.Drawing.Size(120, 26);
             this.txtIva.TabIndex = 33;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(364, 473);
+            this.label9.Location = new System.Drawing.Point(378, 469);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 20);
@@ -178,7 +178,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(570, 467);
+            this.txtTotal.Location = new System.Drawing.Point(630, 469);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(150, 30);
             this.txtTotal.TabIndex = 31;
@@ -187,7 +187,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(509, 469);
+            this.label3.Location = new System.Drawing.Point(563, 469);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
@@ -251,7 +251,7 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.CustomFormat = "dd/MM/ yyyy HH:mm:ss ";
+            this.dtpFecha.CustomFormat = "dd/MM/yyyy HH:mm:ss ";
             this.dtpFecha.Enabled = false;
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFecha.Location = new System.Drawing.Point(594, 90);
@@ -259,7 +259,7 @@
             this.dtpFecha.Size = new System.Drawing.Size(228, 20);
             this.dtpFecha.TabIndex = 43;
             // 
-            // frmCatalogoCompra
+            // frmCatalogoCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -281,8 +281,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtClaveCompra);
             this.Controls.Add(this.label1);
-            this.Name = "frmCatalogoCompra";
+            this.Name = "frmCatalogoCompras";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Información de una Compra";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoCompras_FormClosed);
             this.Load += new System.EventHandler(this.frmCatalogoCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

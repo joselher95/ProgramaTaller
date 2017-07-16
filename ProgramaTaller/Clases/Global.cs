@@ -10,6 +10,14 @@ namespace ProgramaTaller.Clases
     {
         #region Variables
         private static int m_Empleado;
+        public static frmCatalogoClientes frmCatalogoClientes;
+        public static frmCatalogoCompras frmCatalogoCompras;
+        public static frmCatalogoProductos frmCatalogoProductos;
+        public static frmCatalogoProveedores frmCatalogoProveedores;
+        public static frmCatalogoEmpleados frmCatalogoEmpleados;
+        public static frmCatalogoVentas frmCatalogoVentas;
+        public static frmRecepcionMercancia frmRecepcionMercancia;
+        public static frmVentaMercancia frmVentaMercancia;
         #endregion
 
         #region Propiedades

@@ -1,6 +1,6 @@
 ﻿namespace ProgramaTaller
 {
-    partial class frmCatalogoTrabajadores
+    partial class frmCatalogoEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -352,7 +352,7 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // frmCatalogoTrabajadores
+            // frmCatalogoEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -384,8 +384,10 @@
             this.Controls.Add(this.GvTrabajadores);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
-            this.Name = "frmCatalogoTrabajadores";
+            this.Name = "frmCatalogoEmpleados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajadores";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoEmpleados_FormClosed);
             this.Load += new System.EventHandler(this.frmCatalogoTrabajadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GvTrabajadores)).EndInit();
             this.ResumeLayout(false);

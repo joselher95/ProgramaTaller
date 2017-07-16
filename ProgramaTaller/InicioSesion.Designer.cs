@@ -121,6 +121,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Name = "InicioSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesion";
             this.Load += new System.EventHandler(this.InicioSesion_Load);
             this.ResumeLayout(false);
@@ -129,15 +130,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Button btnAyuda;
-
+        public System.Windows.Forms.TextBox txtUsuario;
     }
 }
 

@@ -11,10 +11,10 @@ using ProgramaTaller.Clases;
 
 namespace ProgramaTaller
 {
-    public partial class frmCatalogoCliente : Form
+    public partial class frmCatalogoClientes : Form
     {
         #region Constructor
-        public frmCatalogoCliente()
+        public frmCatalogoClientes()
         {
             InitializeComponent();
         }
@@ -218,6 +218,10 @@ namespace ProgramaTaller
                 MessageBox.Show("Debe seleccionar un Proveedor a editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
-        
+
+        private void frmCatalogoClientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoClientes = null;
+        }
     }
 }

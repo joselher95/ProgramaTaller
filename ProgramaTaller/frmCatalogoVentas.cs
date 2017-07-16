@@ -11,9 +11,9 @@ using ProgramaTaller.Clases;
 
 namespace ProgramaTaller
 {
-    public partial class frmCatalogoVenta : Form
+    public partial class frmCatalogoVentas : Form
     {
-        public frmCatalogoVenta()
+        public frmCatalogoVentas()
         {
             InitializeComponent();
         }
@@ -80,6 +80,11 @@ namespace ProgramaTaller
             dt.Columns.Add("CANTIDAD");
             dt.Columns.Add("IMPORTE");
             return dt;
+        }
+
+        private void frmCatalogoVentas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoVentas = null;
         }
     }
 }

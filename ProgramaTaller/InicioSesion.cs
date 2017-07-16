@@ -41,10 +41,11 @@ namespace ProgramaTaller
                     throw new Exception("La contraseña es incorrecta.");
 
                 Global.EmpleadoSesionActual = usuarios.ClaveUsuario;
-                
-                frmMenu menu = new ProgramaTaller.frmMenu();
-                menu.Show();
+
                 this.Hide();
+                frmMenu menu = new ProgramaTaller.frmMenu();
+                menu.ShowDialog();
+                this.Close();
             }
             catch (Exception ex)
             {

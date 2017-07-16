@@ -192,5 +192,10 @@ namespace ProgramaTaller
             Proveedores proveedor = new Proveedores(Convert.ToInt32(txtProveedor.Text));
             txtNombreProveedor.Text = proveedor.RazonSocial.ToString();
         }
+
+        private void frmCatalogoProductos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoProductos = null;
+        }
     }
 }

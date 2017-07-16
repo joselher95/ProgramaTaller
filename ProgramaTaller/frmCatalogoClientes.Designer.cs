@@ -1,6 +1,6 @@
 ﻿namespace ProgramaTaller
 {
-    partial class frmCatalogoCliente
+    partial class frmCatalogoClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -391,7 +391,7 @@
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             // 
-            // frmCatalogoCliente
+            // frmCatalogoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,8 +427,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);
-            this.Name = "frmCatalogoCliente";
+            this.Name = "frmCatalogoClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoClientes_FormClosed);
             this.Load += new System.EventHandler(this.Cliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvClientes)).EndInit();
             this.ResumeLayout(false);

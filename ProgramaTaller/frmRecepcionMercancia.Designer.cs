@@ -398,7 +398,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmRecepcionMercancia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recepción de Mercancía a Proveedores";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRecepcionMercancia_FormClosed);
             this.Load += new System.EventHandler(this.RecepcionMercancia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();

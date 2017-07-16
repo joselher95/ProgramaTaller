@@ -11,10 +11,10 @@ using ProgramaTaller.Clases;
 
 namespace ProgramaTaller
 {
-    public partial class frmCatalogoTrabajadores : Form
+    public partial class frmCatalogoEmpleados : Form
     {
         #region Constructor
-        public frmCatalogoTrabajadores()
+        public frmCatalogoEmpleados()
         {
             InitializeComponent();
         }
@@ -180,6 +180,11 @@ namespace ProgramaTaller
         {
             this.llenarGrid();
             this.Default();
+        }
+
+        private void frmCatalogoEmpleados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmCatalogoEmpleados = null;
         }
     }
 }

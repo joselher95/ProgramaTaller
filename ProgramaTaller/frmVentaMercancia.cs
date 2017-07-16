@@ -55,6 +55,8 @@ namespace ProgramaTaller
         }
         #endregion
 
+        #region Eventos
+
         private void Venta_Load(object sender, EventArgs e)
         {
             dgvProductos.DefaultCellStyle.SelectionBackColor = Color.CadetBlue;
@@ -180,7 +182,7 @@ namespace ProgramaTaller
             if (resultado == 0)
             {
                 epError.SetError(txtClaveCliente, "Clave de Cliente invalida.");
-                txtNombreEmpleado.Text = "";
+                txtDescripcionCliente.Text = "";
                 return;
             }
 
@@ -188,12 +190,20 @@ namespace ProgramaTaller
             if (cliente.esNuevo)
             {
                 epError.SetError(txtClaveCliente, "El Cliente no existe.");
-                txtNombreEmpleado.Text = "";
+                txtDescripcionCliente.Text = "";
                 return;
             }
-
-            txtNombreEmpleado.Text = cliente.NombreCompleto;
-            epError.Clear();
+            switch (cliente.TipoCliente)
+            {
+                case ('F'):
+                    txtDescripcionCliente.Text = cliente.NombreCompleto;
+                    epError.Clear();
+                    break;
+                case ('M'):
+                    txtDescripcionCliente.Text = cliente.RazonSocial;
+                    epError.Clear();
+                    break;
+            }
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
@@ -343,6 +353,13 @@ namespace ProgramaTaller
 
             txtNombreEmpleado.Text = empleado.NombreCompleto;
             epError.Clear();
+        }
+
+        #endregion
+
+        private void frmVentaMercancia_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmVentaMercancia = null;
         }
     }
 }

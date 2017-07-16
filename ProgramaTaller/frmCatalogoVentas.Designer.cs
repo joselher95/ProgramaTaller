@@ -1,6 +1,6 @@
 ﻿namespace ProgramaTaller
 {
-    partial class frmCatalogoVenta
+    partial class frmCatalogoVentas
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnBuscarVenta = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Clave_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtClaveCompra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -48,18 +53,13 @@
             this.lblProveedor = new System.Windows.Forms.Label();
             this.txtEmpleadoMO = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Clave_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(941, 440);
+            this.button1.Location = new System.Drawing.Point(816, 431);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 65);
@@ -70,12 +70,12 @@
             // 
             // btnEliminarCompra
             // 
-            this.btnEliminarCompra.Location = new System.Drawing.Point(941, 526);
+            this.btnEliminarCompra.Location = new System.Drawing.Point(816, 500);
             this.btnEliminarCompra.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarCompra.Name = "btnEliminarCompra";
             this.btnEliminarCompra.Size = new System.Drawing.Size(112, 28);
             this.btnEliminarCompra.TabIndex = 48;
-            this.btnEliminarCompra.Text = "Eliminar Compra";
+            this.btnEliminarCompra.Text = "Eliminar Venta";
             this.btnEliminarCompra.UseVisualStyleBackColor = true;
             this.btnEliminarCompra.Visible = false;
             // 
@@ -83,7 +83,7 @@
             // 
             this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(282, 428);
+            this.txtSubtotal.Location = new System.Drawing.Point(239, 469);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(120, 26);
             this.txtSubtotal.TabIndex = 47;
@@ -92,7 +92,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(209, 431);
+            this.label10.Location = new System.Drawing.Point(161, 467);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 20);
@@ -103,16 +103,16 @@
             // 
             this.txtIva.Enabled = false;
             this.txtIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIva.Location = new System.Drawing.Point(471, 428);
+            this.txtIva.Location = new System.Drawing.Point(423, 469);
             this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(87, 26);
+            this.txtIva.Size = new System.Drawing.Size(120, 26);
             this.txtIva.TabIndex = 45;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(427, 431);
+            this.label9.Location = new System.Drawing.Point(378, 469);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 20);
@@ -123,7 +123,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(633, 425);
+            this.txtTotal.Location = new System.Drawing.Point(630, 469);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(150, 30);
             this.txtTotal.TabIndex = 43;
@@ -132,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(572, 427);
+            this.label3.Location = new System.Drawing.Point(563, 469);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 25);
@@ -141,7 +141,7 @@
             // 
             // btnBuscarVenta
             // 
-            this.btnBuscarVenta.Location = new System.Drawing.Point(472, 31);
+            this.btnBuscarVenta.Location = new System.Drawing.Point(364, 50);
             this.btnBuscarVenta.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarVenta.Name = "btnBuscarVenta";
             this.btnBuscarVenta.Size = new System.Drawing.Size(110, 26);
@@ -159,96 +159,10 @@
             this.Precio,
             this.Cantidad,
             this.Importe});
-            this.dataGridView1.Location = new System.Drawing.Point(141, 219);
+            this.dataGridView1.Location = new System.Drawing.Point(143, 206);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(785, 184);
             this.dataGridView1.TabIndex = 40;
-            // 
-            // txtClaveCompra
-            // 
-            this.txtClaveCompra.Location = new System.Drawing.Point(365, 35);
-            this.txtClaveCompra.Name = "txtClaveCompra";
-            this.txtClaveCompra.Size = new System.Drawing.Size(78, 20);
-            this.txtClaveCompra.TabIndex = 39;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Clave de Venta:";
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.CustomFormat = "dd/MM/ yyyy HH:mm:ss ";
-            this.dtpFecha.Enabled = false;
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecha.Location = new System.Drawing.Point(648, 103);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(228, 20);
-            this.dtpFecha.TabIndex = 55;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(602, 103);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
-            this.lblFecha.TabIndex = 54;
-            this.lblFecha.Text = "Fecha:";
-            // 
-            // txtEmpleado
-            // 
-            this.txtEmpleado.Location = new System.Drawing.Point(313, 143);
-            this.txtEmpleado.Name = "txtEmpleado";
-            this.txtEmpleado.ReadOnly = true;
-            this.txtEmpleado.Size = new System.Drawing.Size(233, 20);
-            this.txtEmpleado.TabIndex = 53;
-            // 
-            // lblEmpleado
-            // 
-            this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Location = new System.Drawing.Point(219, 146);
-            this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(88, 13);
-            this.lblEmpleado.TabIndex = 52;
-            this.lblEmpleado.Text = "Empleado Venta:";
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(313, 103);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.ReadOnly = true;
-            this.txtCliente.Size = new System.Drawing.Size(233, 20);
-            this.txtCliente.TabIndex = 51;
-            // 
-            // lblProveedor
-            // 
-            this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(265, 103);
-            this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(42, 13);
-            this.lblProveedor.TabIndex = 50;
-            this.lblProveedor.Text = "Cliente:";
-            // 
-            // txtEmpleadoMO
-            // 
-            this.txtEmpleadoMO.Location = new System.Drawing.Point(313, 179);
-            this.txtEmpleadoMO.Name = "txtEmpleadoMO";
-            this.txtEmpleadoMO.ReadOnly = true;
-            this.txtEmpleadoMO.Size = new System.Drawing.Size(233, 20);
-            this.txtEmpleadoMO.TabIndex = 57;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 182);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Empleado Mano de Obra:";
             // 
             // Clave_Producto
             // 
@@ -288,7 +202,93 @@
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
             // 
-            // frmCatalogoVenta
+            // txtClaveCompra
+            // 
+            this.txtClaveCompra.Location = new System.Drawing.Point(259, 50);
+            this.txtClaveCompra.Name = "txtClaveCompra";
+            this.txtClaveCompra.Size = new System.Drawing.Size(100, 20);
+            this.txtClaveCompra.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(170, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Clave de Venta:";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.CustomFormat = "dd/MM/yyyy HH:mm:ss ";
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFecha.Location = new System.Drawing.Point(594, 90);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(228, 20);
+            this.dtpFecha.TabIndex = 55;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(548, 90);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.TabIndex = 54;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // txtEmpleado
+            // 
+            this.txtEmpleado.Location = new System.Drawing.Point(259, 130);
+            this.txtEmpleado.Name = "txtEmpleado";
+            this.txtEmpleado.ReadOnly = true;
+            this.txtEmpleado.Size = new System.Drawing.Size(233, 20);
+            this.txtEmpleado.TabIndex = 53;
+            // 
+            // lblEmpleado
+            // 
+            this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.Location = new System.Drawing.Point(165, 130);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(88, 13);
+            this.lblEmpleado.TabIndex = 52;
+            this.lblEmpleado.Text = "Empleado Venta:";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(259, 90);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
+            this.txtCliente.Size = new System.Drawing.Size(233, 20);
+            this.txtCliente.TabIndex = 51;
+            // 
+            // lblProveedor
+            // 
+            this.lblProveedor.AutoSize = true;
+            this.lblProveedor.Location = new System.Drawing.Point(211, 90);
+            this.lblProveedor.Name = "lblProveedor";
+            this.lblProveedor.Size = new System.Drawing.Size(42, 13);
+            this.lblProveedor.TabIndex = 50;
+            this.lblProveedor.Text = "Cliente:";
+            // 
+            // txtEmpleadoMO
+            // 
+            this.txtEmpleadoMO.Location = new System.Drawing.Point(259, 170);
+            this.txtEmpleadoMO.Name = "txtEmpleadoMO";
+            this.txtEmpleadoMO.ReadOnly = true;
+            this.txtEmpleadoMO.Size = new System.Drawing.Size(233, 20);
+            this.txtEmpleadoMO.TabIndex = 57;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(125, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Empleado Mano de Obra:";
+            // 
+            // frmCatalogoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -313,8 +313,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtClaveCompra);
             this.Controls.Add(this.label1);
-            this.Name = "frmCatalogoVenta";
+            this.Name = "frmCatalogoVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Ventas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoVentas_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

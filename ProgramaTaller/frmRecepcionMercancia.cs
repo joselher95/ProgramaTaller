@@ -289,5 +289,10 @@ namespace ProgramaTaller
             txtNombreProveedor.Text = proveedor.RazonSocial;
             txtNombreProveedor.Visible = true;
         }
+
+        private void frmRecepcionMercancia_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmRecepcionMercancia = null;
+        }
     }
 }

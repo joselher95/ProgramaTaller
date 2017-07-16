@@ -31,6 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFiltrarNombre = new System.Windows.Forms.TextBox();
             this.gvProveedores = new System.Windows.Forms.DataGridView();
+            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RAZON_SOCIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CORREO_ELECTRONICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_PROVEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -53,12 +59,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Clave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RAZON_SOCIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RFC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CORREO_ELECTRONICO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_PROVEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvProveedores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +93,53 @@
             this.gvProveedores.Name = "gvProveedores";
             this.gvProveedores.Size = new System.Drawing.Size(944, 150);
             this.gvProveedores.TabIndex = 3;
+            // 
+            // Clave
+            // 
+            this.Clave.DataPropertyName = "CLAVE";
+            this.Clave.HeaderText = "Clave";
+            this.Clave.Name = "Clave";
+            this.Clave.ReadOnly = true;
+            this.Clave.Width = 70;
+            // 
+            // RAZON_SOCIAL
+            // 
+            this.RAZON_SOCIAL.DataPropertyName = "RAZON_SOCIAL";
+            this.RAZON_SOCIAL.HeaderText = "Razón Social";
+            this.RAZON_SOCIAL.Name = "RAZON_SOCIAL";
+            this.RAZON_SOCIAL.ReadOnly = true;
+            this.RAZON_SOCIAL.Width = 300;
+            // 
+            // RFC
+            // 
+            this.RFC.DataPropertyName = "RFC";
+            this.RFC.HeaderText = "RFC";
+            this.RFC.Name = "RFC";
+            this.RFC.ReadOnly = true;
+            this.RFC.Width = 150;
+            // 
+            // CORREO_ELECTRONICO
+            // 
+            this.CORREO_ELECTRONICO.DataPropertyName = "CORREO";
+            this.CORREO_ELECTRONICO.HeaderText = "Correo";
+            this.CORREO_ELECTRONICO.Name = "CORREO_ELECTRONICO";
+            this.CORREO_ELECTRONICO.ReadOnly = true;
+            this.CORREO_ELECTRONICO.Width = 200;
+            // 
+            // TELEFONO
+            // 
+            this.TELEFONO.DataPropertyName = "TELEFONO";
+            this.TELEFONO.HeaderText = "Teléfono";
+            this.TELEFONO.Name = "TELEFONO";
+            this.TELEFONO.ReadOnly = true;
+            this.TELEFONO.Width = 80;
+            // 
+            // TIPO_PROVEEDOR
+            // 
+            this.TIPO_PROVEEDOR.DataPropertyName = "TIPO_PROVEEDOR";
+            this.TIPO_PROVEEDOR.HeaderText = "Tipo de Proveedor";
+            this.TIPO_PROVEEDOR.Name = "TIPO_PROVEEDOR";
+            this.TIPO_PROVEEDOR.ReadOnly = true;
             // 
             // btnNuevo
             // 
@@ -297,53 +344,6 @@
             this.label2.TabIndex = 51;
             this.label2.Text = "Clave:";
             // 
-            // Clave
-            // 
-            this.Clave.DataPropertyName = "CLAVE";
-            this.Clave.HeaderText = "Clave";
-            this.Clave.Name = "Clave";
-            this.Clave.ReadOnly = true;
-            this.Clave.Width = 70;
-            // 
-            // RAZON_SOCIAL
-            // 
-            this.RAZON_SOCIAL.DataPropertyName = "RAZON_SOCIAL";
-            this.RAZON_SOCIAL.HeaderText = "Razón Social";
-            this.RAZON_SOCIAL.Name = "RAZON_SOCIAL";
-            this.RAZON_SOCIAL.ReadOnly = true;
-            this.RAZON_SOCIAL.Width = 300;
-            // 
-            // RFC
-            // 
-            this.RFC.DataPropertyName = "RFC";
-            this.RFC.HeaderText = "RFC";
-            this.RFC.Name = "RFC";
-            this.RFC.ReadOnly = true;
-            this.RFC.Width = 150;
-            // 
-            // CORREO_ELECTRONICO
-            // 
-            this.CORREO_ELECTRONICO.DataPropertyName = "CORREO";
-            this.CORREO_ELECTRONICO.HeaderText = "Correo";
-            this.CORREO_ELECTRONICO.Name = "CORREO_ELECTRONICO";
-            this.CORREO_ELECTRONICO.ReadOnly = true;
-            this.CORREO_ELECTRONICO.Width = 200;
-            // 
-            // TELEFONO
-            // 
-            this.TELEFONO.DataPropertyName = "TELEFONO";
-            this.TELEFONO.HeaderText = "Teléfono";
-            this.TELEFONO.Name = "TELEFONO";
-            this.TELEFONO.ReadOnly = true;
-            this.TELEFONO.Width = 80;
-            // 
-            // TIPO_PROVEEDOR
-            // 
-            this.TIPO_PROVEEDOR.DataPropertyName = "TIPO_PROVEEDOR";
-            this.TIPO_PROVEEDOR.HeaderText = "Tipo de Proveedor";
-            this.TIPO_PROVEEDOR.Name = "TIPO_PROVEEDOR";
-            this.TIPO_PROVEEDOR.ReadOnly = true;
-            // 
             // frmCatalogoProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +375,9 @@
             this.Controls.Add(this.txtFiltrarNombre);
             this.Controls.Add(this.label1);
             this.Name = "frmCatalogoProveedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCatalogoProveedores_FormClosed);
             this.Load += new System.EventHandler(this.frmCatalogoProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvProveedores)).EndInit();
             this.ResumeLayout(false);

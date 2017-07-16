@@ -56,23 +56,23 @@
     <Compile Include="Clases\Proveedores.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Clases\Venta.cs" />
-    <Compile Include="frmCatalogoCliente.cs">
+    <Compile Include="frmCatalogoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCatalogoCliente.Designer.cs">
-      <DependentUpon>frmCatalogoCliente.cs</DependentUpon>
+    <Compile Include="frmCatalogoClientes.Designer.cs">
+      <DependentUpon>frmCatalogoClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCatalogoCompra.cs">
+    <Compile Include="frmCatalogoCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCatalogoCompra.Designer.cs">
-      <DependentUpon>frmCatalogoCompra.cs</DependentUpon>
+    <Compile Include="frmCatalogoCompras.Designer.cs">
+      <DependentUpon>frmCatalogoCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCatalogoVenta.cs">
+    <Compile Include="frmCatalogoVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCatalogoVenta.Designer.cs">
-      <DependentUpon>frmCatalogoVenta.cs</DependentUpon>
+    <Compile Include="frmCatalogoVentas.Designer.cs">
+      <DependentUpon>frmCatalogoVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
@@ -106,11 +106,11 @@
     <Compile Include="frmRecepcionMercancia.Designer.cs">
       <DependentUpon>frmRecepcionMercancia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCatalogoTrabajadores.cs">
+    <Compile Include="frmCatalogoEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCatalogoTrabajadores.Designer.cs">
-      <DependentUpon>frmCatalogoTrabajadores.cs</DependentUpon>
+    <Compile Include="frmCatalogoEmpleados.Designer.cs">
+      <DependentUpon>frmCatalogoEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVentaMercancia.cs">
       <SubType>Form</SubType>
@@ -118,14 +118,14 @@
     <Compile Include="frmVentaMercancia.Designer.cs">
       <DependentUpon>frmVentaMercancia.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmCatalogoCliente.resx">
-      <DependentUpon>frmCatalogoCliente.cs</DependentUpon>
+    <EmbeddedResource Include="frmCatalogoClientes.resx">
+      <DependentUpon>frmCatalogoClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCatalogoCompra.resx">
-      <DependentUpon>frmCatalogoCompra.cs</DependentUpon>
+    <EmbeddedResource Include="frmCatalogoCompras.resx">
+      <DependentUpon>frmCatalogoCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCatalogoVenta.resx">
-      <DependentUpon>frmCatalogoVenta.cs</DependentUpon>
+    <EmbeddedResource Include="frmCatalogoVentas.resx">
+      <DependentUpon>frmCatalogoVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
@@ -151,8 +151,8 @@
     <EmbeddedResource Include="frmRecepcionMercancia.resx">
       <DependentUpon>frmRecepcionMercancia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCatalogoTrabajadores.resx">
-      <DependentUpon>frmCatalogoTrabajadores.cs</DependentUpon>
+    <EmbeddedResource Include="frmCatalogoEmpleados.resx">
+      <DependentUpon>frmCatalogoEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVentaMercancia.resx">
       <DependentUpon>frmVentaMercancia.cs</DependentUpon>
