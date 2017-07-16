@@ -157,6 +157,7 @@ namespace ProgramaTaller.Clases
 
         public void Cargar()
         {
+            string algo = "";
             if (cargarDatos)
             {
                 try
