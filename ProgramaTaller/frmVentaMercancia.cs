@@ -174,38 +174,6 @@ namespace ProgramaTaller
             }
         }
 
-        private void txtClaveCliente_TextChanged(object sender, EventArgs e)
-        {
-            int resultado;
-            int.TryParse(txtClaveCliente.Text, out resultado);
-
-            if (resultado == 0)
-            {
-                epError.SetError(txtClaveCliente, "Clave de Cliente invalida.");
-                txtDescripcionCliente.Text = "";
-                return;
-            }
-
-            Clientes cliente = new Clientes(resultado);
-            if (cliente.esNuevo)
-            {
-                epError.SetError(txtClaveCliente, "El Cliente no existe.");
-                txtDescripcionCliente.Text = "";
-                return;
-            }
-            switch (cliente.TipoCliente)
-            {
-                case ('F'):
-                    txtDescripcionCliente.Text = cliente.NombreCompleto;
-                    epError.Clear();
-                    break;
-                case ('M'):
-                    txtDescripcionCliente.Text = cliente.RazonSocial;
-                    epError.Clear();
-                    break;
-            }
-        }
-
         private void btnPagar_Click(object sender, EventArgs e)
         {
             try
@@ -355,11 +323,30 @@ namespace ProgramaTaller
             epError.Clear();
         }
 
-        #endregion
-
         private void frmVentaMercancia_FormClosed(object sender, FormClosedEventArgs e)
         {
             Global.frmVentaMercancia = null;
         }
+
+        private void txtClaveCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtClaveProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtClaveEmpleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+        #endregion
     }
 }
