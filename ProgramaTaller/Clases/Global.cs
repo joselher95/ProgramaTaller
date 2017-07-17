@@ -9,7 +9,6 @@ namespace ProgramaTaller.Clases
     public static class Global
     {
         #region Variables
-        private static int lelel;
         private static int m_Empleado;
         public static frmCatalogoClientes frmCatalogoClientes;
         public static frmCatalogoCompras frmCatalogoCompras;
