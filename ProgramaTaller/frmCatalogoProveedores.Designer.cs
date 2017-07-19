@@ -185,6 +185,7 @@
             // 
             this.txtRazonSocial.Enabled = false;
             this.txtRazonSocial.Location = new System.Drawing.Point(294, 338);
+            this.txtRazonSocial.MaxLength = 90;
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(714, 20);
             this.txtRazonSocial.TabIndex = 7;
@@ -202,9 +203,11 @@
             // 
             this.txtApellidoMaterno.Enabled = false;
             this.txtApellidoMaterno.Location = new System.Drawing.Point(630, 364);
+            this.txtApellidoMaterno.MaxLength = 30;
             this.txtApellidoMaterno.Name = "txtApellidoMaterno";
             this.txtApellidoMaterno.Size = new System.Drawing.Size(378, 20);
             this.txtApellidoMaterno.TabIndex = 9;
+            this.txtApellidoMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoMaterno_KeyPress);
             // 
             // rbPersonaMoral
             // 
@@ -237,14 +240,17 @@
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(630, 421);
+            this.txtTelefono.MaxLength = 12;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(212, 20);
             this.txtTelefono.TabIndex = 13;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtCorreo
             // 
             this.txtCorreo.Enabled = false;
             this.txtCorreo.Location = new System.Drawing.Point(147, 421);
+            this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(368, 20);
             this.txtCorreo.TabIndex = 12;
@@ -271,14 +277,17 @@
             // 
             this.txtApellidoPaterno.Enabled = false;
             this.txtApellidoPaterno.Location = new System.Drawing.Point(147, 367);
+            this.txtApellidoPaterno.MaxLength = 30;
             this.txtApellidoPaterno.Name = "txtApellidoPaterno";
             this.txtApellidoPaterno.Size = new System.Drawing.Size(368, 20);
             this.txtApellidoPaterno.TabIndex = 8;
+            this.txtApellidoPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoPaterno_KeyPress);
             // 
             // txtRFC
             // 
             this.txtRFC.Enabled = false;
             this.txtRFC.Location = new System.Drawing.Point(630, 392);
+            this.txtRFC.MaxLength = 13;
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(378, 20);
             this.txtRFC.TabIndex = 11;
@@ -287,9 +296,11 @@
             // 
             this.txtNombres.Enabled = false;
             this.txtNombres.Location = new System.Drawing.Point(147, 395);
+            this.txtNombres.MaxLength = 30;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(368, 20);
             this.txtNombres.TabIndex = 10;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // txtClave
             // 

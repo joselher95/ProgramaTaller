@@ -131,7 +131,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(125, 73);
+            this.label8.Location = new System.Drawing.Point(211, 51);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 8;
@@ -177,7 +177,6 @@
             // 
             // txtClaveEmpleado
             // 
-            this.txtClaveEmpleado.Enabled = false;
             this.txtClaveEmpleado.Location = new System.Drawing.Point(99, 16);
             this.txtClaveEmpleado.MaxLength = 9;
             this.txtClaveEmpleado.Name = "txtClaveEmpleado";
@@ -230,11 +229,11 @@
             // 
             // txtMontoManoObra
             // 
-            this.txtMontoManoObra.Enabled = false;
-            this.txtMontoManoObra.Location = new System.Drawing.Point(36, 107);
+            this.txtMontoManoObra.Location = new System.Drawing.Point(261, 48);
             this.txtMontoManoObra.Name = "txtMontoManoObra";
             this.txtMontoManoObra.Size = new System.Drawing.Size(110, 20);
             this.txtMontoManoObra.TabIndex = 19;
+            this.txtMontoManoObra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoManoObra_KeyPress);
             // 
             // btnPagar
             // 
@@ -453,7 +452,7 @@
             this.gbManoObra.Enabled = false;
             this.gbManoObra.Location = new System.Drawing.Point(64, 370);
             this.gbManoObra.Name = "gbManoObra";
-            this.gbManoObra.Size = new System.Drawing.Size(937, 53);
+            this.gbManoObra.Size = new System.Drawing.Size(937, 81);
             this.gbManoObra.TabIndex = 35;
             this.gbManoObra.TabStop = false;
             // 

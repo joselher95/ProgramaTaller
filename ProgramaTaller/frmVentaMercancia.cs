@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProgramaTaller.Clases;
+using System.Text.RegularExpressions;
 
 namespace ProgramaTaller
 {
@@ -365,6 +366,26 @@ namespace ProgramaTaller
         private void txtClaveEmpleado_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+        private void txtMontoManoObra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+               && !char.IsDigit(e.KeyChar)
+               && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point 
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtMontoManoObra.Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
         }
         #endregion
 

@@ -19,7 +19,6 @@ namespace ProgramaTaller.Clases
 
         private int m_ClaveVenta;
         private Clientes m_Cliente;
-        private Empleado m_EmpleadoVenta;
         private Empleado m_EmpleadoManoObra;
         private bool cargarDatos = false;
 
@@ -68,12 +67,11 @@ namespace ProgramaTaller.Clases
             get
             {
                 this.Cargar();
-                return m_EmpleadoVenta;
+                return new Empleado(Convert.ToInt32(this.dtsVentas.Tables[0].Rows[0]["CLAVE_EMPLEADO_VENTA"]));
             }
             set
             {
                 this.Cargar();
-                this.m_EmpleadoVenta = value;
                 object objValor = DBNull.Value;
                 if (value != null)
                     objValor = value.ClaveEmpleado;
@@ -166,12 +164,7 @@ namespace ProgramaTaller.Clases
                             this.m_Cliente = null;
                         else
                             this.m_Cliente = new Clientes(Convert.ToInt32(this.dtsVentas.Tables[0].Rows[0]["CLAVE_CLIENTE"]));
-
-                        if (this.dtsVentas.Tables[0].Rows[0]["CLAVE_EMPLEADO_VENTA"] == DBNull.Value)
-                            this.m_EmpleadoVenta = null;
-                        else
-                            this.m_EmpleadoVenta = new Empleado(Convert.ToInt32(this.dtsVentas.Tables[0].Rows[0]["CLAVE_EMPLEADO_VENTA"]));
-
+                        
                         if (this.dtsVentas.Tables[0].Rows[0]["CLAVE_EMPLEADO_MANO_OBRA"] == DBNull.Value)
                             this.m_EmpleadoManoObra = null;
                         else

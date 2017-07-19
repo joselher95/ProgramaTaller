@@ -166,5 +166,18 @@ namespace ProgramaTaller
                 Global.frmRecepcionMercancia.BringToFront();
             }
         }
+
+        private void registroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Global.frmRegistroUsuario == null)
+            {
+                Global.frmRegistroUsuario = new frmRegistroUsuario();
+                Global.frmRegistroUsuario.Show();
+            }
+            else
+            {
+                Global.frmRegistroUsuario.BringToFront();
+            }
+        }
     }
 }

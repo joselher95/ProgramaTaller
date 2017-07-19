@@ -110,9 +110,11 @@
             // txtClaveCompra
             // 
             this.txtClaveCompra.Location = new System.Drawing.Point(259, 50);
+            this.txtClaveCompra.MaxLength = 10;
             this.txtClaveCompra.Name = "txtClaveCompra";
             this.txtClaveCompra.Size = new System.Drawing.Size(100, 20);
             this.txtClaveCompra.TabIndex = 6;
+            this.txtClaveCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveCompra_KeyPress);
             // 
             // label1
             // 

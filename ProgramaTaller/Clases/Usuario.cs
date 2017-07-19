@@ -48,7 +48,15 @@ namespace ProgramaTaller.Clases
             get
             {
                 this.Cargar();
-                return this.dtsUsuarios.Tables[0].Rows[0]["USUARIO"].ToString();
+                return this.dtsUsuarios.Tables[0].Rows[0]["NOMBRE_USUARIO"].ToString();
+            }
+            set
+            {
+                this.Cargar();
+                object objValor = DBNull.Value;
+                if (value != "")
+                    objValor = value;
+                this.dtsUsuarios.Tables[0].Rows[0]["NOMBRE_USUARIO"] = objValor;
             }
         }
 
@@ -58,6 +66,14 @@ namespace ProgramaTaller.Clases
             {
                 this.Cargar();
                 return this.dtsUsuarios.Tables[0].Rows[0]["CONTRASENIA_USUARIO"].ToString();
+            }
+            set
+            {
+                this.Cargar();
+                object objValor = DBNull.Value;
+                if (value != "")
+                    objValor = value;
+                this.dtsUsuarios.Tables[0].Rows[0]["CONTRASENIA_USUARIO"] = objValor;
             }
         }
 
@@ -143,9 +159,10 @@ namespace ProgramaTaller.Clases
         public void Guardar()
         {
             con.Open();
-            dapUsuarios.InsertCommand = cmd;
-            dapUsuarios.UpdateCommand = cmd;
-            dapUsuarios.DeleteCommand = cmd;
+            SqlCommandBuilder cb = new SqlCommandBuilder(dapUsuarios);
+            dapUsuarios.InsertCommand = cb.GetInsertCommand(true);
+            dapUsuarios.UpdateCommand = cb.GetUpdateCommand(true);
+            dapUsuarios.DeleteCommand = cb.GetDeleteCommand(true);
             dapUsuarios.Update(dtsUsuarios.Tables[0]);
             con.Close();
         }

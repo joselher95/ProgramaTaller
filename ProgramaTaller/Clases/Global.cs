@@ -18,6 +18,7 @@ namespace ProgramaTaller.Clases
         public static frmCatalogoVentas frmCatalogoVentas;
         public static frmRecepcionMercancia frmRecepcionMercancia;
         public static frmVentaMercancia frmVentaMercancia;
+        public static frmRegistroUsuario frmRegistroUsuario;
         #endregion
 
         #region Propiedades

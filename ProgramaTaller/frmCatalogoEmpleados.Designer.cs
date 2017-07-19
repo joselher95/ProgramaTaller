@@ -158,10 +158,12 @@
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(193, 40);
+            this.txtFiltro.MaxLength = 92;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(598, 20);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
             // label1
             // 
@@ -176,14 +178,17 @@
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(765, 407);
+            this.txtTelefono.MaxLength = 12;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(134, 20);
             this.txtTelefono.TabIndex = 13;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtCorreo
             // 
             this.txtCorreo.Enabled = false;
             this.txtCorreo.Location = new System.Drawing.Point(343, 407);
+            this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(329, 20);
             this.txtCorreo.TabIndex = 12;
@@ -192,14 +197,17 @@
             // 
             this.txtNumero.Enabled = false;
             this.txtNumero.Location = new System.Drawing.Point(96, 407);
+            this.txtNumero.MaxLength = 4;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 20);
             this.txtNumero.TabIndex = 11;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // txtColonia
             // 
             this.txtColonia.Enabled = false;
             this.txtColonia.Location = new System.Drawing.Point(731, 365);
+            this.txtColonia.MaxLength = 30;
             this.txtColonia.Name = "txtColonia";
             this.txtColonia.Size = new System.Drawing.Size(321, 20);
             this.txtColonia.TabIndex = 10;
@@ -208,9 +216,11 @@
             // 
             this.txtCalle.Enabled = false;
             this.txtCalle.Location = new System.Drawing.Point(279, 365);
+            this.txtCalle.MaxLength = 30;
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(327, 20);
             this.txtCalle.TabIndex = 9;
+            this.txtCalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCalle_KeyPress);
             // 
             // label11
             // 
@@ -261,14 +271,17 @@
             // 
             this.txtApellidoP.Enabled = false;
             this.txtApellidoP.Location = new System.Drawing.Point(243, 324);
+            this.txtApellidoP.MaxLength = 30;
             this.txtApellidoP.Name = "txtApellidoP";
             this.txtApellidoP.Size = new System.Drawing.Size(200, 20);
             this.txtApellidoP.TabIndex = 5;
+            this.txtApellidoP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoP_KeyPress);
             // 
             // txtRFC
             // 
             this.txtRFC.Enabled = false;
             this.txtRFC.Location = new System.Drawing.Point(53, 365);
+            this.txtRFC.MaxLength = 13;
             this.txtRFC.Name = "txtRFC";
             this.txtRFC.Size = new System.Drawing.Size(164, 20);
             this.txtRFC.TabIndex = 8;
@@ -277,9 +290,11 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(838, 324);
+            this.txtNombre.MaxLength = 30;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(214, 20);
             this.txtNombre.TabIndex = 7;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtClave
             // 
@@ -338,9 +353,11 @@
             // 
             this.txtApellidoM.Enabled = false;
             this.txtApellidoM.Location = new System.Drawing.Point(564, 324);
+            this.txtApellidoM.MaxLength = 30;
             this.txtApellidoM.Name = "txtApellidoM";
             this.txtApellidoM.Size = new System.Drawing.Size(195, 20);
             this.txtApellidoM.TabIndex = 6;
+            this.txtApellidoM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoM_KeyPress);
             // 
             // btnGuardar
             // 
