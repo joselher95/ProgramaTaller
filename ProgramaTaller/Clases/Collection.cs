@@ -48,6 +48,58 @@ namespace ProgramaTaller.Clases
             return Usuarios;
         }
 
+        public Usuario[] catalogoUsuario()
+        {
+            #region Obtener catalogo
+            con.Open();
+            string strConsulta = "SELECT * FROM USUARIOS";
+            cmd = new SqlCommand(strConsulta, con);
+            dapCollection = new SqlDataAdapter();
+            dtCollection = new DataTable();
+            dapCollection.SelectCommand = cmd;
+            dapCollection.Fill(dtCollection);
+            con.Close();
+            #endregion
+
+            #region crear arreglo
+            ArrayList arlUsuario = new ArrayList();
+
+            foreach (DataRow row in dtCollection.Rows)
+            {
+                Usuario usuario = new Usuario(Convert.ToInt32(row["CLAVE_USUARIO"]));
+                arlUsuario.Add(usuario);
+            }
+            Usuario[] arrUsuario = new Usuario[arlUsuario.Count];
+            arlUsuario.CopyTo(arrUsuario);
+            #endregion
+
+            return arrUsuario;
+        }
+
+        public int obtenerSiguienteUsuario()
+        {
+            #region Consulta
+            con.Open();
+            string strConsulta = "SELECT MAX(CLAVE_USUARIO)+1 CLAVE_USUARIO FROM USUARIOS";
+            cmd = new SqlCommand(strConsulta, con);
+            dapCollection = new SqlDataAdapter(cmd);
+            DataTable dtResultado = new DataTable();
+            dapCollection.Fill(dtResultado);
+            con.Close();
+
+            #endregion
+
+            #region Validar que no regrese 0
+            int iResultado;
+            if (dtResultado.Rows[0]["CLAVE_USUARIO"] != DBNull.Value)
+                iResultado = Convert.ToInt32(dtResultado.Rows[0]["CLAVE_USUARIO"]);
+            else
+                iResultado = 1;
+            #endregion
+
+            return iResultado;
+        }
+
         #region Métodos Clientes
         public Clientes[] CatalogoClientes()
         {

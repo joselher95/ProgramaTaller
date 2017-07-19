@@ -41,6 +41,7 @@
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             this.tsmVentaMercancia,
             this.tsmRecepcionMercancia,
             this.catálogosToolStripMenuItem,
+            this.registroDeUsuarioToolStripMenuItem,
             this.tsmAyuda,
             this.tsmCerrarSesion,
             this.tsmSalir});
@@ -148,6 +150,13 @@
             this.tsmSalir.Text = "Salir";
             this.tsmSalir.Click += new System.EventHandler(this.tsmSalir_Click);
             // 
+            // registroDeUsuarioToolStripMenuItem
+            // 
+            this.registroDeUsuarioToolStripMenuItem.Name = "registroDeUsuarioToolStripMenuItem";
+            this.registroDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.registroDeUsuarioToolStripMenuItem.Text = "Registro de Usuario";
+            this.registroDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.registroDeUsuarioToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +191,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem tsmSalir;
+        private System.Windows.Forms.ToolStripMenuItem registroDeUsuarioToolStripMenuItem;
     }
 }
