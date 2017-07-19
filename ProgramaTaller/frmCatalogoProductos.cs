@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProgramaTaller.Clases;
+using System.Text.RegularExpressions;
 
 namespace ProgramaTaller
 {
@@ -215,7 +216,49 @@ namespace ProgramaTaller
 
         private void txtPrecioC_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            if (!char.IsControl(e.KeyChar)
+               && !char.IsDigit(e.KeyChar)
+               && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point 
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtPrecioC.Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+               && !char.IsDigit(e.KeyChar)
+               && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point 
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtPrecioV.Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtExistencia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

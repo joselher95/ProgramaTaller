@@ -96,14 +96,17 @@
             // 
             this.txtPrecioV.Enabled = false;
             this.txtPrecioV.Location = new System.Drawing.Point(379, 442);
+            this.txtPrecioV.MaxLength = 8;
             this.txtPrecioV.Name = "txtPrecioV";
             this.txtPrecioV.Size = new System.Drawing.Size(119, 20);
             this.txtPrecioV.TabIndex = 13;
+            this.txtPrecioV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioV_KeyPress);
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Enabled = false;
             this.txtDescripcion.Location = new System.Drawing.Point(583, 361);
+            this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(469, 20);
             this.txtDescripcion.TabIndex = 8;
@@ -112,6 +115,7 @@
             // 
             this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(239, 361);
+            this.txtNombre.MaxLength = 25;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(241, 20);
             this.txtNombre.TabIndex = 7;
@@ -121,6 +125,7 @@
             // 
             this.txtProveedor.Enabled = false;
             this.txtProveedor.Location = new System.Drawing.Point(111, 401);
+            this.txtProveedor.MaxLength = 3;
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(124, 20);
             this.txtProveedor.TabIndex = 9;
@@ -253,6 +258,7 @@
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(188, 26);
+            this.txtFiltro.MaxLength = 25;
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(482, 20);
             this.txtFiltro.TabIndex = 1;
@@ -281,6 +287,7 @@
             // 
             this.txtPrecioC.Enabled = false;
             this.txtPrecioC.Location = new System.Drawing.Point(111, 442);
+            this.txtPrecioC.MaxLength = 8;
             this.txtPrecioC.Name = "txtPrecioC";
             this.txtPrecioC.Size = new System.Drawing.Size(119, 20);
             this.txtPrecioC.TabIndex = 12;
@@ -295,6 +302,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Buscar Proveedor";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // label8
             // 
@@ -336,9 +344,11 @@
             // 
             this.txtExistencia.Enabled = false;
             this.txtExistencia.Location = new System.Drawing.Point(601, 442);
+            this.txtExistencia.MaxLength = 3;
             this.txtExistencia.Name = "txtExistencia";
             this.txtExistencia.Size = new System.Drawing.Size(119, 20);
             this.txtExistencia.TabIndex = 14;
+            this.txtExistencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExistencia_KeyPress);
             // 
             // frmCatalogoProductos
             // 

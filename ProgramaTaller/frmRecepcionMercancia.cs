@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProgramaTaller.Clases;
+using System.Text.RegularExpressions;
 
 namespace ProgramaTaller
 {
@@ -31,39 +32,6 @@ namespace ProgramaTaller
             dgvProductos.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
-        private void txtClaveProducto_TextChanged(object sender, EventArgs e)
-        {
-            int resultado;
-            int.TryParse(txtClaveProducto.Text, out resultado);
-
-            if (resultado == 0)
-            {
-                epError.SetError(txtClaveProducto, "Clave de producto invalida.");
-                txtDescripcionProducto.Text = "";
-                txtCosto.Text = "";
-                txtPrecioVenta.Text = "";
-                txtDescripcionProducto.Visible = false;
-                return;
-            }
-
-            Producto producto = new Producto(resultado);
-            if (producto.esNuevo)
-            {
-                epError.SetError(txtClaveProducto, "El producto no existe.");
-                txtDescripcionProducto.Text = "";
-                txtCosto.Text = "";
-                txtPrecioVenta.Text = "";
-                txtDescripcionProducto.Visible = false;
-                return;
-            }
-
-            txtDescripcionProducto.Text = producto.Descripcion;
-            txtCosto.Text = producto.PrecioCompra.ToString();
-            txtPrecioVenta.Text = producto.PrecioVenta.ToString();
-            epError.Clear();
-            txtDescripcionProducto.Visible = true;
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -79,7 +47,12 @@ namespace ProgramaTaller
                 if (txtCantidad.Text == "")
                     throw new Exception("Debe teclear la cantidad de productos a agregar.");
                 Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
-
+                if (producto.PrecioCompra != Convert.ToDecimal(txtCosto.Text))
+                    producto.PrecioCompra = Convert.ToDecimal(txtCosto.Text);
+                if (producto.PrecioVenta != Convert.ToDecimal(txtPrecioVenta.Text))
+                    producto.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
+                producto.Guardar();
+                    
                 if (this.dtDatosGrid == null)
                     dtDatosGrid = crearTableDatosGrid();
 
@@ -135,50 +108,6 @@ namespace ProgramaTaller
             catch (Exception ex)
             {
                 MessageBox.Show("Error al agregar la venta. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-        }
-
-        private void txtCosto_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtClaveProducto.Text == "")
-                    throw new Exception("");
-                if (txtCosto.Text == "")
-                    throw new Exception("No se puede dejar el Costo vacío.");
-                Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
-                if (producto.PrecioCompra != Convert.ToDecimal(txtCosto))
-                {
-                    producto.PrecioCompra = Convert.ToDecimal(txtCosto);
-                    producto.Guardar();
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message != "")
-                    MessageBox.Show(ex.Message, "Advertencia.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void txtPrecioVenta_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtClaveProducto.Text == "")
-                    throw new Exception("");
-                if (txtPrecioVenta.Text == "")
-                    throw new Exception("No se puede dejar el Costo vacío.");
-                Producto producto = new Producto(Convert.ToInt32(txtClaveProducto.Text));
-                if (producto.PrecioVenta != Convert.ToDecimal(txtPrecioVenta.Text))
-                {
-                    producto.PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
-                    producto.Guardar();
-                }
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message != "")
-                    MessageBox.Show(ex.Message, "Advertencia.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -258,13 +187,67 @@ namespace ProgramaTaller
             this.dgvProductos.ClearSelection();
             epError.Clear();
             this.dgvProductos.CurrentCell = null;
-            dtDatosGrid.Rows.Clear();
+            if(dtDatosGrid != null)
+                dtDatosGrid.Rows.Clear();
             this.dgvProductos.DataSource = dtDatosGrid;
         }
 
         #endregion
 
         private void txtClaveProveedor_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmRecepcionMercancia_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Global.frmRecepcionMercancia = null;
+        }
+
+        private void txtClaveProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtClaveProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtClaveProducto_Leave(object sender, EventArgs e)
+        {
+            int resultado;
+            int.TryParse(txtClaveProducto.Text, out resultado);
+
+            if (resultado == 0)
+            {
+                epError.SetError(txtClaveProducto, "Clave de producto invalida.");
+                txtDescripcionProducto.Text = "";
+                txtCosto.Text = "";
+                txtPrecioVenta.Text = "";
+                txtDescripcionProducto.Visible = false;
+                return;
+            }
+
+            Producto producto = new Producto(resultado);
+            if (producto.esNuevo)
+            {
+                epError.SetError(txtClaveProducto, "El producto no existe.");
+                txtDescripcionProducto.Text = "";
+                txtCosto.Text = "";
+                txtPrecioVenta.Text = "";
+                txtDescripcionProducto.Visible = false;
+                return;
+            }
+
+            txtDescripcionProducto.Text = producto.Descripcion;
+            txtCosto.Text = producto.PrecioCompra.ToString();
+            txtPrecioVenta.Text = producto.PrecioVenta.ToString();
+            epError.Clear();
+            txtDescripcionProducto.Visible = true;
+        }
+
+        private void txtClaveProveedor_Leave(object sender, EventArgs e)
         {
             int resultado;
             int.TryParse(txtClaveProveedor.Text, out resultado);
@@ -290,9 +273,51 @@ namespace ProgramaTaller
             txtNombreProveedor.Visible = true;
         }
 
-        private void frmRecepcionMercancia_FormClosed(object sender, FormClosedEventArgs e)
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Global.frmRecepcionMercancia = null;
+            if (!char.IsControl(e.KeyChar)
+               && !char.IsDigit(e.KeyChar)
+               && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point 
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtCosto.Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point 
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(txtPrecioVenta.Text, @"\.\d\d"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }
