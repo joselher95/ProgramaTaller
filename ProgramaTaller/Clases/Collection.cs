@@ -422,6 +422,29 @@ namespace ProgramaTaller.Clases
         }
         #endregion
 
+        #region Metodos Mano de Obra
+        public int obtenerSiguienteManoObra()
+        {
+            #region Consulta
+            con.Open();
+            string strConsulta = "SELECT MAX(CLAVE_MANO_OBRA)+1 FROM MANO_OBRA";
+            cmd = new SqlCommand(strConsulta, con);
+            dapCollection = new SqlDataAdapter(cmd);
+            DataTable dtResultado = new DataTable();
+            dapCollection.Fill(dtResultado);
+            con.Close();
+
+            #endregion
+
+            #region Validar que no regrese 0
+            int iResultado = Convert.ToInt32(dtResultado.Rows[0]["CLAVE_MANO_OBRA"]);
+            if (iResultado == 0)
+                iResultado++;
+            #endregion
+
+            return iResultado;
+        }
+        #endregion  
         #endregion
     }
 }

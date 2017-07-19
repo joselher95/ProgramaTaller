@@ -16,7 +16,7 @@ namespace ProgramaTaller
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InicioSesion());
+            Application.Run(new frmMenu());
         }
     }
 }

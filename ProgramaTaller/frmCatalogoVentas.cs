@@ -27,7 +27,7 @@ namespace ProgramaTaller
 
                 int claveVenta = Convert.ToInt32(this.txtClaveCompra.Text);
 
-                Venta venta = new Venta(claveVenta,new Empleado(Global.EmpleadoSesionActual));
+                Venta venta = new Venta(claveVenta);
                 if (venta.esNuevo)
                     throw new Exception("La clave de venta no existe");
                 this.txtEmpleado.Text = venta.EmpleadoVenta.NombreCompleto;
@@ -85,6 +85,11 @@ namespace ProgramaTaller
         private void frmCatalogoVentas_FormClosed(object sender, FormClosedEventArgs e)
         {
             Global.frmCatalogoVentas = null;
+        }
+
+        private void txtClaveCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

@@ -27,10 +27,9 @@ namespace ProgramaTaller.Clases
 
         #region Constructor
 
-        public Venta(int ClaveVenta, Empleado empleadoVenta)
+        public Venta(int ClaveVenta)
         {
             this.m_ClaveVenta = ClaveVenta;
-            this.m_EmpleadoVenta = empleadoVenta;
             this.cargarDatos = true;
         }
 

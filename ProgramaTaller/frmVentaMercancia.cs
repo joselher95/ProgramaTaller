@@ -193,7 +193,7 @@ namespace ProgramaTaller
 
                 Collection collection = new Collection();
                 int claveVenta = collection.obtenerSiguienteVenta();
-                Venta venta = new Venta(claveVenta, new Empleado(Global.EmpleadoSesionActual));
+                Venta venta = new Venta(claveVenta);
                 venta.Cliente = new Clientes(Convert.ToInt32(txtClaveCliente.Text));
                 venta.EmpleadoVenta = new Empleado(Global.EmpleadoSesionActual);
                 if (chkManoObra.Checked)
@@ -201,6 +201,25 @@ namespace ProgramaTaller
                 venta.FechaVenta = DateTime.Now;
                 venta.Guardar();
 
+                if(chkManoObra.Checked)
+                {
+                    int claveManoObra = collection.obtenerSiguienteManoObra();
+                    ManoObra manoObra = new ManoObra(claveManoObra);
+                    manoObra.Empleado = new Empleado(Convert.ToInt32(this.txtClaveEmpleado.Text));
+                    manoObra.Venta = venta;
+                    manoObra.Monto = Convert.ToDecimal(this.txtMontoManoObra.Text);
+                    if(this.txtMontoManoObra.Text == "0")
+                    {
+                        manoObra.Estatus = 'B';
+                    }
+                    else
+                    {
+                        manoObra.Estatus = 'A';
+                    }
+                    
+                    manoObra.Guardar();
+                }
+                
                 foreach (DataRow row in dtDatosGrid.Rows)
                 {
                     int claveDetalleVenta = collection.obtenerSiguienteDetalleVenta();
@@ -348,5 +367,6 @@ namespace ProgramaTaller
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         #endregion
+
     }
 }

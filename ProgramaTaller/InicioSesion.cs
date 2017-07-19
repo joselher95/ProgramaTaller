@@ -8,11 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProgramaTaller.Clases;
+using System.Data.SqlClient;
+using System.IO;
+using Microsoft.SqlServer.Server;
+using Microsoft.SqlServer;
+using System.Text.RegularExpressions;
 
 namespace ProgramaTaller
 {
     public partial class InicioSesion : Form
     {
+        #region Variables
+        SqlCommand cmd;
+        SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString);
+        SqlConnection conMaster = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConexionMaster"].ConnectionString);
+        #endregion
+
+        #region Eventos
         public InicioSesion()
         {
             InitializeComponent();
@@ -65,7 +77,47 @@ namespace ProgramaTaller
 
         private void InicioSesion_Load(object sender, EventArgs e)
         {
+            if (!probarConexion())
+            {
+                string direccion = Environment.CurrentDirectory + "\\DB TALLER.sql";
+                string script = File.ReadAllText(direccion);
+
+                IEnumerable<string> commandStrings = Regex.Split(script, @"^\s*GO\s*$",
+                           RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+                conMaster.Open();
+                foreach (string commandString in commandStrings)
+                {
+                    if (commandString.Trim() != "")
+                    {
+                        using (cmd= new SqlCommand(commandString, conMaster))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                conMaster.Close();
+            }
+        }
+        #endregion
+
+        #region Eventos
+
+        private bool probarConexion()
+        {
+            try
+            {
+                con.Open();
+                con.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
         }
+
+        #endregion
     }
 }

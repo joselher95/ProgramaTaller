@@ -63,7 +63,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 65);
-            this.button1.TabIndex = 49;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Reimprimir Venta";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
@@ -74,17 +74,17 @@
             this.btnEliminarCompra.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarCompra.Name = "btnEliminarCompra";
             this.btnEliminarCompra.Size = new System.Drawing.Size(112, 28);
-            this.btnEliminarCompra.TabIndex = 48;
+            this.btnEliminarCompra.TabIndex = 4;
             this.btnEliminarCompra.Text = "Eliminar Venta";
             this.btnEliminarCompra.UseVisualStyleBackColor = true;
             this.btnEliminarCompra.Visible = false;
             // 
             // txtSubtotal
             // 
-            this.txtSubtotal.Enabled = false;
             this.txtSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubtotal.Location = new System.Drawing.Point(239, 469);
             this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(120, 26);
             this.txtSubtotal.TabIndex = 47;
             // 
@@ -101,10 +101,10 @@
             // 
             // txtIva
             // 
-            this.txtIva.Enabled = false;
             this.txtIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIva.Location = new System.Drawing.Point(423, 469);
             this.txtIva.Name = "txtIva";
+            this.txtIva.ReadOnly = true;
             this.txtIva.Size = new System.Drawing.Size(120, 26);
             this.txtIva.TabIndex = 45;
             // 
@@ -121,10 +121,10 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(630, 469);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(150, 30);
             this.txtTotal.TabIndex = 43;
             // 
@@ -145,7 +145,7 @@
             this.btnBuscarVenta.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarVenta.Name = "btnBuscarVenta";
             this.btnBuscarVenta.Size = new System.Drawing.Size(110, 26);
-            this.btnBuscarVenta.TabIndex = 41;
+            this.btnBuscarVenta.TabIndex = 2;
             this.btnBuscarVenta.Text = "Buscar Venta";
             this.btnBuscarVenta.UseVisualStyleBackColor = true;
             this.btnBuscarVenta.Click += new System.EventHandler(this.btnBuscarVenta_Click);
@@ -161,6 +161,8 @@
             this.Importe});
             this.dataGridView1.Location = new System.Drawing.Point(143, 206);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(785, 184);
             this.dataGridView1.TabIndex = 40;
             // 
@@ -205,9 +207,11 @@
             // txtClaveCompra
             // 
             this.txtClaveCompra.Location = new System.Drawing.Point(259, 50);
+            this.txtClaveCompra.MaxLength = 9;
             this.txtClaveCompra.Name = "txtClaveCompra";
             this.txtClaveCompra.Size = new System.Drawing.Size(100, 20);
-            this.txtClaveCompra.TabIndex = 39;
+            this.txtClaveCompra.TabIndex = 1;
+            this.txtClaveCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveCompra_KeyPress);
             // 
             // label1
             // 

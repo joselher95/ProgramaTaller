@@ -204,7 +204,6 @@
             this.btnBuscarCliente.TabIndex = 15;
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCliente.Visible = false;
             // 
             // btnBuscarProducto
             // 
