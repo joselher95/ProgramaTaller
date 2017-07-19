@@ -106,5 +106,10 @@ namespace ProgramaTaller
         {
             Global.frmCatalogoCompras = null;
         }
+
+        private void txtClaveCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

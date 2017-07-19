@@ -262,7 +262,6 @@
             this.txtColonia.Name = "txtColonia";
             this.txtColonia.Size = new System.Drawing.Size(378, 20);
             this.txtColonia.TabIndex = 15;
-            this.txtColonia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColonia_KeyPress);
             // 
             // txtNumero
             // 
@@ -288,7 +287,7 @@
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(751, 444);
-            this.txtTelefono.MaxLength = 15;
+            this.txtTelefono.MaxLength = 12;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(232, 20);
             this.txtTelefono.TabIndex = 18;

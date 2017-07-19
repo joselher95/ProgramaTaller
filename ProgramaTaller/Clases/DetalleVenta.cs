@@ -187,7 +187,7 @@ namespace ProgramaTaller.Clases
                         if (this.dtsDetalleDetalleVentas.Tables[0].Rows[0]["CLAVE_VENTA"] == DBNull.Value)
                             this.m_Venta = null;
                         else
-                            this.m_Venta = new Venta(Convert.ToInt32(this.dtsDetalleDetalleVentas.Tables[0].Rows[0]["CLAVE_VENTA"]), new Empleado(Global.EmpleadoSesionActual));
+                            this.m_Venta = new Venta(Convert.ToInt32(this.dtsDetalleDetalleVentas.Tables[0].Rows[0]["CLAVE_VENTA"]));
 
                         if (this.dtsDetalleDetalleVentas.Tables[0].Rows[0]["CLAVE_PRODUCTO"] == DBNull.Value)
                             this.m_Producto = null;

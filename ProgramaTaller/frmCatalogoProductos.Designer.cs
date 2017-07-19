@@ -115,6 +115,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(241, 20);
             this.txtNombre.TabIndex = 7;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtProveedor
             // 
@@ -123,6 +124,7 @@
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(124, 20);
             this.txtProveedor.TabIndex = 9;
+            this.txtProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProveedor_KeyPress);
             this.txtProveedor.Leave += new System.EventHandler(this.txtProveedor_Leave);
             // 
             // txtClave
@@ -255,6 +257,7 @@
             this.txtFiltro.Size = new System.Drawing.Size(482, 20);
             this.txtFiltro.TabIndex = 1;
             this.txtFiltro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
             // label1
             // 
@@ -281,9 +284,11 @@
             this.txtPrecioC.Name = "txtPrecioC";
             this.txtPrecioC.Size = new System.Drawing.Size(119, 20);
             this.txtPrecioC.TabIndex = 12;
+            this.txtPrecioC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioC_KeyPress);
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(282, 397);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 26);
